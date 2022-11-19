@@ -1,25 +1,37 @@
-import { Box } from 'components/Box/Box';
-import { Button } from './Login.styled';
+// import { Box } from 'components/Box/Box';
+import { Button, StyledForm, StyledField, Label } from './Login.styled';
+import { Formik } from 'formik';
 // import { NavLink, useLocation } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 // import css from './Home.module.css';
 
 export default function Login() {
   return (
-    <Box p={3} textAlign="center">
-      <form>
-        <label>
-          login
-          <input></input>
-        </label>
+    <Formik
+      // onSubmit={}
+      initialValues={{
+        login: '',
+        password: '',
+      }}
+    >
+      <StyledForm>
+        <Label htmlFor="login">
+          <span>login</span>
+          <StyledField name="login" type="text" placeholder=" "></StyledField>
+        </Label>
 
-        <label>
-          password
-          <input></input>
-        </label>
+        <Label htmlFor="password">
+          <span>password </span>
+          <StyledField
+            name="password"
+            type="text"
+            placeholder=" "
+            autocomplete="off"
+          ></StyledField>
+        </Label>
 
         <Button type="submit">Login</Button>
-      </form>
-    </Box>
+      </StyledForm>
+    </Formik>
   );
 }

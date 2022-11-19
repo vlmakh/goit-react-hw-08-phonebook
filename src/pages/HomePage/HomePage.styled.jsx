@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+
 export const MenuLink = styled(NavLink)`
   width: 50%;
   padding: 16px 0;
@@ -16,3 +17,4 @@ export const MenuLink = styled(NavLink)`
     background-color: grey;
   }
 `;
+
