@@ -6,9 +6,14 @@ import { Formik } from 'formik';
 // import css from './Home.module.css';
 
 export default function Login() {
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
+  };
+
   return (
     <Formik
-      // onSubmit={}
+      onSubmit={handleSubmit}
       initialValues={{
         login: '',
         password: '',
@@ -24,7 +29,7 @@ export default function Login() {
           <span>password </span>
           <StyledField
             name="password"
-            type="text"
+            type="password"
             placeholder=" "
             autocomplete="off"
           ></StyledField>

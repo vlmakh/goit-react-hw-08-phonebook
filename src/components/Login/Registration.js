@@ -5,10 +5,14 @@ import { Formik } from 'formik';
 // import { useEffect, useState } from 'react';
 // import css from './Home.module.css';
 
-export default function LoginPage() {
+export default function Registration() {
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
+  };
   return (
     <Formik
-      // onSubmit={}
+      onSubmit={handleSubmit}
       initialValues={{
         login: '',
         email: '',
@@ -30,7 +34,7 @@ export default function LoginPage() {
           <span>password </span>
           <StyledField
             name="password"
-            type="text"
+            type="password"
             placeholder=" "
             autocomplete="off"
           ></StyledField>
