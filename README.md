@@ -1,4 +1,4 @@
-# goit-react-hw-06-phonebook
+# goit-react-hw-08-phonebook
 
 - Refactor using Redux Toolkit - configureStore, createSlice
 - Refactor using backend on mockapi
