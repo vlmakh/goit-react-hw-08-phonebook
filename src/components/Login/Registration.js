@@ -3,15 +3,11 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/operations';
 
-// import { NavLink, useLocation } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
-// import css from './Home.module.css';
-
 export default function Registration() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    // console.log(values);
     dispatch(register(values));
     resetForm();
   };
@@ -25,14 +21,14 @@ export default function Registration() {
       }}
     >
       <StyledForm>
-        <Label htmlFor="name">
-          <span>login</span>
-          <StyledField name="name" type="text" placeholder=" "></StyledField>
-        </Label>
-
         <Label htmlFor="email">
           <span>email</span>
           <StyledField name="email" type="email" placeholder=" "></StyledField>
+        </Label>
+
+        <Label htmlFor="name">
+          <span>name</span>
+          <StyledField name="name" type="text" placeholder=" "></StyledField>
         </Label>
 
         <Label htmlFor="password">

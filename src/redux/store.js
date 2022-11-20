@@ -49,7 +49,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(phonebookApi.middleware),
 });
 
 export const persistor = persistStore(store);

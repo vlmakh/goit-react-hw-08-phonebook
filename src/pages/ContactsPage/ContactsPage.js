@@ -6,12 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 import { useGetContactsQuery, useAddContactMutation } from 'services/api';
+import { logout } from 'redux/operations';
+// import { getContacts } from 'redux/operations';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter.filter);
   const { data: contacts, error, isLoading } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
+  const userName = useSelector(state => state.auth.user.name);
 
   const handleAdd = async (newContact, resetForm) => {
     if (
@@ -44,7 +47,7 @@ export default function ContactsPage() {
   return (
     <Box width="320px" mx="auto" position="relative">
       <Box px={2} pb={2} display="flex" justifyContent="space-between">
-        <h4>Welcome, User</h4>
+        <h4>Welcome, {userName}</h4>
         <Link to="/">Logout</Link>
       </Box>
 

@@ -1,13 +1,14 @@
-// import { Box } from 'components/Box/Box';
 import { Button, StyledForm, StyledField, Label } from './Login.styled';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/operations';
 // import { NavLink, useLocation } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
-// import css from './Home.module.css';
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values.login);
+    dispatch(login(values));
     resetForm();
   };
 
@@ -15,14 +16,14 @@ export default function Login() {
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
-        name: '',
+        email: '',
         password: '',
       }}
     >
       <StyledForm>
-        <Label htmlFor="login">
-          <span>login</span>
-          <StyledField name="name" type="text" placeholder=" "></StyledField>
+        <Label htmlFor="email">
+          <span>email</span>
+          <StyledField name="email" type="text" placeholder=" "></StyledField>
         </Label>
 
         <Label htmlFor="password">
