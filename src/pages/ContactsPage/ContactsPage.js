@@ -3,6 +3,7 @@ import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 
@@ -42,6 +43,11 @@ export default function ContactsPage() {
 
   return (
     <Box width="320px" mx="auto" position="relative">
+      <Box px={2} pb={2} display="flex" justifyContent="space-between">
+        <h4>Welcome, User</h4>
+        <Link to="/">Logout</Link>
+      </Box>
+
       <AddForm onFormSubmit={handleAdd} />
 
       <Box

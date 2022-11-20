@@ -7,7 +7,7 @@ import { Formik } from 'formik';
 
 export default function Login() {
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    console.log(values.login);
     resetForm();
   };
 
@@ -31,7 +31,7 @@ export default function Login() {
             name="password"
             type="password"
             placeholder=" "
-            autocomplete="off"
+            autoComplete="off"
           ></StyledField>
         </Label>
 

@@ -12,9 +12,14 @@ export const MenuLink = styled(NavLink)`
   color: #212121;
   border-bottom: 1px solid #212121;
   text-decoration: none;
+  transition: background-color 250ms linear;
 
   &.active {
-    background-color: grey;
+    background-color: #fcd535;
+  }
+
+  :hover {
+    background-color: #ffcc00;
   }
 `;
 

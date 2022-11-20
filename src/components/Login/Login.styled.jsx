@@ -3,15 +3,23 @@ import { Form, Field } from 'formik';
 
 export const Button = styled.button`
   cursor: pointer;
-  width: 100px;
-  padding: 4px;
+  width: 100%;
+  padding: 8px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 4px;
+  border: none;
   margin: 0 auto;
+  background-color: #fcd535;
+  transition: background-color 250ms linear;
 
-  :hover {
-    background-color: grey;
+  :hover,:focus {
+    background-color: #ffcc00;
+  }
+
+
+  :focus-visible {
+    outline: none;
   }
 `;
 
@@ -26,6 +34,15 @@ export const StyledForm = styled(Form)`
 
 export const StyledField = styled(Field)`
   padding: 4px 8px;
+  /* border-radius: 4px; */
+
+  /* :hover,:focus {
+    border-color: #ffcc00;
+  } */
+
+  :focus-visible {
+    outline: none;
+  }
 `;
 
 export const Label = styled.label`

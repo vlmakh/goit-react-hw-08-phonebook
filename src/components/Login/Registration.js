@@ -36,7 +36,7 @@ export default function Registration() {
             name="password"
             type="password"
             placeholder=" "
-            autocomplete="off"
+            autoComplete="off"
           ></StyledField>
         </Label>
 
