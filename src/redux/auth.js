@@ -21,12 +21,9 @@ export const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-
-    // [logout.fulfilled](state) {
-    //   state.user = null;
-    //   state.token = null;
-    //   state.isLoggedIn = false;
-    // },
+    [logout.fulfilled](state) {
+      state.user = initialState;
+    },
   },
 });
 
