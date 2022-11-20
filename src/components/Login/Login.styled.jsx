@@ -48,4 +48,5 @@ export const StyledField = styled(Field)`
 export const Label = styled.label`
   display: flex;
   justify-content: space-between;
+  font-weight: 600;
 `;

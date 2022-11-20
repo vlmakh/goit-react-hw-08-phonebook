@@ -15,14 +15,14 @@ export default function Login() {
     <Formik
       onSubmit={handleSubmit}
       initialValues={{
-        login: '',
+        name: '',
         password: '',
       }}
     >
       <StyledForm>
         <Label htmlFor="login">
           <span>login</span>
-          <StyledField name="login" type="text" placeholder=" "></StyledField>
+          <StyledField name="name" type="text" placeholder=" "></StyledField>
         </Label>
 
         <Label htmlFor="password">
