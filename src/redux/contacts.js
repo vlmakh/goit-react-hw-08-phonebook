@@ -6,17 +6,6 @@ import {
   updateContact,
 } from './operations';
 
-// export const contactsSlice = createSlice({
-//   name: 'phonebook',
-//   initialState: [],
-//   extraReducers: {
-//     [getContacts.fulfilled](state, action) {
-//       console.log(action.payload);
-//       return action.payload;
-//     },
-//   },
-// });
-
 export const contactsSlice = createSlice({
   name: 'phonebook',
   initialState: [],
@@ -26,7 +15,7 @@ export const contactsSlice = createSlice({
         return action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {
-        //   console.log(action.payload);
+        console.log(state);
         state.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
