@@ -64,9 +64,17 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 });
 
 export const getContacts = createAsyncThunk(
-  'phonebook/getContacts',
+  'contacts/getContacts',
   async () => {
     const response = await axios.get(`/contacts`);
+    return response.data;
+  }
+);
+
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async newContact => {
+    const response = await axios.post(`/contacts`, newContact);
     return response.data;
   }
 );

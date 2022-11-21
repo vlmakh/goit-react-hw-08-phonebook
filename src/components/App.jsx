@@ -3,6 +3,8 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations'
 import { useDispatch } from 'react-redux';
+// import Login from 'components/Login/Login';
+// import Registration from 'components/Login/Registration';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
 
 const Login = lazy(() => import('components/Login/Login'));

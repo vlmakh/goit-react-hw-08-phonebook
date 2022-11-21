@@ -2,20 +2,28 @@ import { Box } from 'components/Box/Box';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/store';
-import { useGetContactsQuery, useAddContactMutation } from 'services/api';
+// import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
-// import { getContacts } from 'redux/operations';
+import { getContacts, addContact } from 'redux/operations';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
+
+  // dispatch(getContacts());
+  // const { data: contacts, error, isLoading } = useGetContactsQuery();
+  // const [addContact] = useAddContactMutation();
   const filter = useSelector(state => state.filter.filter);
-  const { data: contacts, error, isLoading } = useGetContactsQuery();
-  const [addContact] = useAddContactMutation();
+  const contacts = useSelector(state => state.phonebook);
   const userName = useSelector(state => state.auth.user.name);
-  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleAdd = async (newContact, resetForm) => {
     if (
@@ -26,13 +34,14 @@ export default function ContactsPage() {
       alert(` ${newContact.name} is already in contacts.`);
       return;
     }
-    try {
-      await addContact(newContact);
-    } catch (error) {
-      alert(error);
-    } finally {
-      resetForm();
-    }
+    // try {
+    //   // await addContact(newContact);
+    // } catch (error) {
+    //   alert(error);
+    // } finally {
+    //   resetForm();
+    // }
+    dispatch(addContact(newContact));
   };
 
   const handleFilter = event => {
@@ -52,9 +61,15 @@ export default function ContactsPage() {
       <Box width="320px" mx="auto" position="relative">
         <Box px={2} pb={2} display="flex" justifyContent="space-between">
           <h4>Welcome, {userName}</h4>
-          <button type="button" onClick={() => dispatch(logout())}>
-            Logout
-          </button>
+          {isLoggedIn ? (
+            <button type="button" onClick={() => dispatch(logout())}>
+              Logout
+            </button>
+          ) : (
+            <button type="button" onClick={() => {}}>
+              Home
+            </button>
+          )}
         </Box>
 
         <AddForm onFormSubmit={handleAdd} />
@@ -69,7 +84,7 @@ export default function ContactsPage() {
         >
           <Filter value={filter} onChange={handleFilter} />
 
-          {error && (
+          {/* {error && (
             <p>Sorry, there is some error. Please try to reload page...</p>
           )}
 
@@ -77,7 +92,9 @@ export default function ContactsPage() {
             'Loading...'
           ) : (
             <ContactList contacts={filteredContacts ?? []} />
-          )}
+          )} */}
+
+          <ContactList contacts={filteredContacts ?? []} />
         </Box>
       </Box>
     </>
