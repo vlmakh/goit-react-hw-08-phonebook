@@ -3,7 +3,7 @@ import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
@@ -15,7 +15,7 @@ export default function ContactsPage() {
   const { data: contacts, error, isLoading } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
   const userName = useSelector(state => state.auth.user.name);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleAdd = async (newContact, resetForm) => {
     if (
@@ -47,7 +47,7 @@ export default function ContactsPage() {
 
   return (
     <>
-      {!isLoggedIn && <Navigate to="/" />}
+      {/* {!isLoggedIn && <Navigate to="/" />} */}
 
       <Box width="320px" mx="auto" position="relative">
         <Box px={2} pb={2} display="flex" justifyContent="space-between">
@@ -55,7 +55,6 @@ export default function ContactsPage() {
           <button type="button" onClick={() => dispatch(logout())}>
             Logout
           </button>
-          {/* <Link to="/">Logout</Link> */}
         </Box>
 
         <AddForm onFormSubmit={handleAdd} />

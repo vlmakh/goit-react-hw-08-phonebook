@@ -36,6 +36,7 @@ export const checkCurrentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+    // console.log(thunkAPI);
 
     if (state.auth.token === null) {
       // console.log('No token in storage');

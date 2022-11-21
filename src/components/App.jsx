@@ -3,11 +3,11 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations'
 import { useDispatch } from 'react-redux';
-// import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Login/Registration'));
-const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
+// const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch()
