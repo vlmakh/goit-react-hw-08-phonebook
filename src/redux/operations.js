@@ -32,6 +32,27 @@ export const login = createAsyncThunk('auth/login', async credentials => {
   }
 });
 
+export const checkCurrentUser = createAsyncThunk(
+  'auth/current',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+
+    if (state.auth.token === null) {
+      // console.log('No token in storage');
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(state.auth.token);
+
+    try {
+      const response = await axios.get(`/users/current`);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 export const logout = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post(`/users/logout`);
