@@ -67,6 +67,7 @@ export const getContacts = createAsyncThunk(
   'contacts/getContacts',
   async () => {
     const response = await axios.get(`/contacts`);
+    // token.set(response.data.token);
     return response.data;
   }
 );
@@ -75,6 +76,25 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async newContact => {
     const response = await axios.post(`/contacts`, newContact);
+    // token.set(response.data.token);
+    return response.data;
+  }
+);
+
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
+  async contactId => {
+    await axios.delete(`/contacts/${contactId}`);
+    // token.set(response.data.token);
+    // return response.data;
+  }
+);
+
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async (contactId, newData) => {
+    const response = await axios.patch(`/contacts/${contactId}`, newData);
+    console.log(newData);
     return response.data;
   }
 );

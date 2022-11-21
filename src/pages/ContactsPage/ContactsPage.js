@@ -42,6 +42,7 @@ export default function ContactsPage() {
     //   resetForm();
     // }
     dispatch(addContact(newContact));
+    resetForm();
   };
 
   const handleFilter = event => {
