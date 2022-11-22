@@ -3,6 +3,7 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
 import { useDispatch } from 'react-redux';
+// import { PrivateRoute } from './PrivateRoute';
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Login/Registration'));

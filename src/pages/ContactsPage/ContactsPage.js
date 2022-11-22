@@ -4,7 +4,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 // import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
@@ -59,7 +59,7 @@ export default function ContactsPage() {
 
   return (
     <>
-      {/* {!isLoggedIn && <Navigate to="/" />} */}
+      {!isLoggedIn && <Navigate to="/" />}
 
       <Box width="320px" mx="auto" position="relative">
         <Box px={2} pb={2} display="flex" justifyContent="space-between">
