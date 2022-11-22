@@ -29,11 +29,6 @@ export const contactsSlice = createSlice({
           contact => contact.id === action.payload.id
         );
         state.splice(index, 1, action.payload);
-        // state = state.map(contact =>
-        //   contact.id !== action.payload.id
-        //     ? contact
-        //     : { ...contact, ...action.payload }
-        // );
       });
   },
 });

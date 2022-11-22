@@ -4,11 +4,12 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 // import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
 import { getContacts, addContact } from 'redux/operations';
+import { Button } from './ContactsPage.styled';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -64,13 +65,9 @@ export default function ContactsPage() {
       <Box width="320px" mx="auto" position="relative">
         <Box px={2} pb={2} display="flex" justifyContent="space-between">
           <h4>Welcome, {userName}</h4>
-          {isLoggedIn ? (
-            <button type="button" onClick={() => dispatch(logout())}>
-              Logout
-            </button>
-          ) : (
-            <Link to="/">Login</Link>
-          )}
+          <Button type="button" onClick={() => dispatch(logout())}>
+            Logout
+          </Button>
         </Box>
 
         <AddForm onFormSubmit={handleAdd} />

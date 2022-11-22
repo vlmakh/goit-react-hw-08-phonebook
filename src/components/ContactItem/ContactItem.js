@@ -23,34 +23,11 @@ export function ContactItem({ id, name, number, contacts }) {
 
   const handleDelete = contactId => {
     if (global.confirm('Delete contact?')) {
-      // try {
-      //   deleteContact(contactId);
-      // } catch (error) {
-      //   alert(error);
-      // }
       dispatch(deleteContact(contactId));
     }
   };
 
   const handleUpdate = updatedContact => {
-    // if (
-    //   contacts.find(
-    //     contact =>
-    //       contact.name.toLowerCase() === updatedContact.name.toLowerCase()
-    // && contact.id !== { id }
-    //   )
-    // ) {
-    //   alert(` ${updatedContact.name} is already in contacts.`);
-    //   return;
-    // }
-    // try {
-    //   updateContact({ id, ...updatedContact });
-    // } catch (error) {
-    //   alert(error);
-    // } finally {
-    //   setShowEditForm(!showEditForm);
-    // }
-    // console.log(updatedContact);
     dispatch(updateContact({ id, ...updatedContact }));
     toggleEditForm();
   };

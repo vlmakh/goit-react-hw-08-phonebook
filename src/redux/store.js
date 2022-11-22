@@ -1,5 +1,4 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-// import { phonebookApi } from 'services/api';
 import {
   persistStore,
   persistReducer,
@@ -41,7 +40,6 @@ export const { filterChange } = myFilter.actions;
 
 export const store = configureStore({
   reducer: {
-    // [phonebookApi.reducerPath]: phonebookApi.reducer,
     filter: myFilter.reducer,
     auth: authPersistedReducer,
     phonebook: contactsSlice.reducer,
@@ -52,7 +50,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // .concat(phonebookApi.middleware),
 });
 
 export const persistor = persistStore(store);

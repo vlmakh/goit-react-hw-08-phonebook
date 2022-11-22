@@ -18,7 +18,7 @@ export const register = createAsyncThunk('auth/register', async credentials => {
     token.set(response.data.token);
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 
@@ -28,7 +28,8 @@ export const login = createAsyncThunk('auth/login', async credentials => {
     token.set(response.data.token);
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error.message);
+    alert('There is mistake in login or password, please try again');
   }
 });
 

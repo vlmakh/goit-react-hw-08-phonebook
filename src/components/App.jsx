@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 // import { PrivateRoute } from './PrivateRoute';
+// import {PublicRoute} from './PublicRoute'
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Registration/Registration'));
@@ -24,6 +25,7 @@ export const App = () => {
             <Route path="/registration" element={<Registration />} />
           </Route>
           <Route path="/contacts" element={<ContactsPage />} />
+          {/* <Route path="/contacts" element={<PrivateRoute component={<ContactsPage />} />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
