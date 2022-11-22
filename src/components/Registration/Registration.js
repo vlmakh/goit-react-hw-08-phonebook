@@ -1,4 +1,9 @@
-import { Button, StyledForm, StyledField, Label } from './Login.styled';
+import {
+  Button,
+  StyledForm,
+  StyledField,
+  Label,
+} from 'components/Login/Login.styled';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/operations';

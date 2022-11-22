@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 // import { PrivateRoute } from './PrivateRoute';
 
 const Login = lazy(() => import('components/Login/Login'));
-const Registration = lazy(() => import('components/Login/Registration'));
+const Registration = lazy(() => import('components/Registration/Registration'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
