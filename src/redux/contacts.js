@@ -19,9 +19,10 @@ export const contactsSlice = createSlice({
         state.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        console.log(action.meta.arg);
-        console.log(state);
-        state = state.filter(({ id }) => id !== action.meta.arg);
+        const index = state.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        state.splice(index, 1);
       })
       .addCase(updateContact.fulfilled, (state, action) => {
         console.log(action.payload);

@@ -4,7 +4,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { filterChange } from 'redux/store';
 // import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
@@ -12,6 +12,12 @@ import { getContacts, addContact } from 'redux/operations';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filter.filter);
+  const statePhonebook = useSelector(state => state.phonebook);
+  const userName = useSelector(state => state.auth.user.name);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  const contacts = isLoggedIn ? statePhonebook : [];
 
   useEffect(() => {
     dispatch(getContacts());
@@ -20,10 +26,6 @@ export default function ContactsPage() {
   // dispatch(getContacts());
   // const { data: contacts, error, isLoading } = useGetContactsQuery();
   // const [addContact] = useAddContactMutation();
-  const filter = useSelector(state => state.filter.filter);
-  const contacts = useSelector(state => state.phonebook);
-  const userName = useSelector(state => state.auth.user.name);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleAdd = async (newContact, resetForm) => {
     if (
@@ -67,9 +69,7 @@ export default function ContactsPage() {
               Logout
             </button>
           ) : (
-            <button type="button" onClick={() => {}}>
-              Home
-            </button>
+            <Link to="/">Login</Link>
           )}
         </Box>
 
