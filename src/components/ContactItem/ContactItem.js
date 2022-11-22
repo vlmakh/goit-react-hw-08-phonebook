@@ -4,7 +4,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
 // import {useDeleteContactMutation,
 // useUpdateContactMutation}  from 'services/api';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
@@ -21,7 +21,7 @@ export function ContactItem({ id, name, number, contacts }) {
     setShowEditForm(!showEditForm);
   };
 
-  const handleDelete = async contactId => {
+  const handleDelete = contactId => {
     if (global.confirm('Delete contact?')) {
       // try {
       //   deleteContact(contactId);
@@ -32,7 +32,7 @@ export function ContactItem({ id, name, number, contacts }) {
     }
   };
 
-  const handleUpdate = async updatedContact => {
+  const handleUpdate = updatedContact => {
     // if (
     //   contacts.find(
     //     contact =>
@@ -51,7 +51,8 @@ export function ContactItem({ id, name, number, contacts }) {
     //   setShowEditForm(!showEditForm);
     // }
     // console.log(updatedContact);
-    dispatch(updateContact(id, updatedContact));
+    dispatch(updateContact({ id, ...updatedContact }));
+    toggleEditForm();
   };
 
   function getRandomHexColor() {
