@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Form, Field } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
 
 export const Button = styled.button`
   cursor: pointer;
@@ -34,11 +34,6 @@ export const StyledForm = styled(Form)`
 
 export const StyledField = styled(Field)`
   padding: 4px 8px;
-  /* border-radius: 4px; */
-
-  /* :hover,:focus {
-    border-color: #ffcc00;
-  } */
 
   :focus-visible {
     outline: none;
@@ -46,7 +41,18 @@ export const StyledField = styled(Field)`
 `;
 
 export const Label = styled.label`
+position: relative;
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+`;
+
+export const StyledErrorMsg = styled(ErrorMessage)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translatey(100%);
+  font-size: 10px;
+  background-color: white;
+  color: #212121;
 `;

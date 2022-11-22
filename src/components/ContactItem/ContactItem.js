@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import css from './ContactItem.module.css';
 import { MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
-// import {useDeleteContactMutation,
-// useUpdateContactMutation}  from 'services/api';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
@@ -11,9 +9,7 @@ import { EditForm } from 'components/EditForm/EditForm';
 import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
 
-export function ContactItem({ id, name, number, contacts }) {
-  // const [deleteContact, { isLoading }] = useDeleteContactMutation();
-  // const [updateContact] = useUpdateContactMutation();
+export function ContactItem({ id, name, number }) {
   const [showEditForm, setShowEditForm] = useState(false);
   const dispatch = useDispatch();
 
@@ -73,5 +69,4 @@ ContactItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.string,
-  contacts: PropTypes.array,
 };
