@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
 import { Box } from 'components/Box/Box';
 import { Bars } from 'react-loader-spinner';
-// import { PrivateRoute } from './PrivateRoute';
-// import {PublicRoute} from './PublicRoute'
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Registration/Registration'));
@@ -39,11 +39,17 @@ export const App = () => {
       >
         <Routes>
           <Route path="/" element={<HomePage />}>
-            <Route index element={<Login />} />
-            <Route path="/registration" element={<Registration />} />
+            <Route index element={<RestrictedRoute component={<Login />} />} />
+            <Route
+              path="/registration"
+              element={<RestrictedRoute component={<Registration />} />}
+            />
           </Route>
-          <Route path="/contacts" element={<ContactsPage />} />
-          {/* <Route path="/contacts" element={<PrivateRoute component={<ContactsPage />} />} /> */}
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={<ContactsPage />} />}
+          />
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>

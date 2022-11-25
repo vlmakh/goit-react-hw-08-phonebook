@@ -1,8 +1,10 @@
 # goit-react-hw-08-phonebook
 
 - Refactor using Redux Toolkit - configureStore, createSlice
-- Refactor using backend on mockapi
-- RTK Query is used for async fetch to backend
+- Contacts of each user are saved on special backend
+- Login Token is saved in Local storage using Persist redux
+- AsyncThunk is used for async fetch to backend
+- Private and restricted routes redirect user automatically
 
 Used libraries:
 
@@ -11,5 +13,4 @@ Used libraries:
 - Formik;
 - Yup;
 - react-icons;
-- nanoid;
 - prop-types.

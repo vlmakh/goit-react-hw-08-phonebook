@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/store';
-// import { useGetContactsQuery, useAddContactMutation } from 'services/api';
 import { logout } from 'redux/operations';
 import { getContacts, addContact } from 'redux/operations';
 import { Button } from './ContactsPage.styled';
@@ -18,15 +17,12 @@ export default function ContactsPage() {
   const userName = useSelector(state => state.auth.user.name);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
-  const contacts = isLoggedIn ? statePhonebook : [];
+  // const contacts = isLoggedIn ? statePhonebook : [];
+  const contacts = statePhonebook;
 
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
-
-  // dispatch(getContacts());
-  // const { data: contacts, error, isLoading } = useGetContactsQuery();
-  // const [addContact] = useAddContactMutation();
 
   const handleAdd = async (newContact, resetForm) => {
     if (
