@@ -33,13 +33,7 @@ export default function ContactsPage() {
       alert(` ${newContact.name} is already in contacts.`);
       return;
     }
-    // try {
-    //   // await addContact(newContact);
-    // } catch (error) {
-    //   alert(error);
-    // } finally {
-    //   resetForm();
-    // }
+
     dispatch(addContact(newContact));
     resetForm();
   };
