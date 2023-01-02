@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './ContactItem.module.css';
+import css from './ContactListItem.module.css';
 import { MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
@@ -9,7 +9,7 @@ import { EditForm } from 'components/EditForm/EditForm';
 import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
 
-export function ContactItem({ id, name, number }) {
+export function ContactListItem({ id, name, number }) {
   const [showEditForm, setShowEditForm] = useState(false);
   const dispatch = useDispatch();
 
@@ -65,7 +65,7 @@ export function ContactItem({ id, name, number }) {
   );
 }
 
-ContactItem.propTypes = {
+ContactListItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.string,
