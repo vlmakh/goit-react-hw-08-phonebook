@@ -7,7 +7,7 @@ import {
 } from './operations';
 
 export const contactsSlice = createSlice({
-  name: 'phonebook',
+  name: 'contacts',
   initialState: [],
   extraReducers: builder => {
     builder

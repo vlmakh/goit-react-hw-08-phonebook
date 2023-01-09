@@ -29,7 +29,7 @@ export const store = configureStore({
   reducer: {
     filter: filterSlice.reducer,
     auth: authPersistedReducer,
-    phonebook: contactsSlice.reducer,
+    contacts: contactsSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -13,7 +13,7 @@ import { Button } from './ContactsPage.styled';
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter.filter);
-  const contacts = useSelector(state => state.phonebook);
+  const contacts = useSelector(state => state.contacts);
   const userName = useSelector(state => state.auth.user.name);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
