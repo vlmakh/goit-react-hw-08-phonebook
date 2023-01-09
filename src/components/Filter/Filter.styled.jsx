@@ -1,8 +1,9 @@
-.filterInput {
+import styled from '@emotion/styled';
+
+export const Input = styled.input`
   display: block;
-  /* margin: 16px 0; */
   text-align: left;
   width: 100%;
   box-sizing: border-box;
   padding: 4px 8px;
-}
+`;

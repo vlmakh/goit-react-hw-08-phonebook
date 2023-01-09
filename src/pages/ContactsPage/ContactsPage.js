@@ -5,7 +5,6 @@ import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { filterChange } from 'redux/filter';
 import { logout } from 'redux/operations';
 import { getContacts } from 'redux/operations';
 import { Button } from './ContactsPage.styled';
@@ -21,10 +20,6 @@ export default function ContactsPage() {
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
-
-  const handleFilter = event => {
-    dispatch(filterChange(event.currentTarget.value));
-  };
 
   const filteredContacts = contacts
     ? contacts.filter(contact =>
@@ -55,7 +50,7 @@ export default function ContactsPage() {
           backgroundColor="white"
         >
           {filteredContacts.length > 0 || filter ? (
-            <Filter value={filter} onChange={handleFilter} />
+            <Filter />
           ) : (
             <Notification msg="No contacts added" />
           )}
