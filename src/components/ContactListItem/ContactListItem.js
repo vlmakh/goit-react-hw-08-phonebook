@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import css from './ContactListItem.module.css';
 import { MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
@@ -8,6 +7,7 @@ import Modal from 'components/Modal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
 import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
+import { ContactName, ContactNumber, DelBtn } from './ContactListItem.styled';
 
 export function ContactListItem({ id, name, number }) {
   const [showEditForm, setShowEditForm] = useState(false);
@@ -42,19 +42,17 @@ export function ContactListItem({ id, name, number }) {
         p={2}
       >
         <BsPersonCircle size="20" color={getRandomHexColor()} />
-        <span className={css.contactName}>{name}</span>
-        <span className={css.contactNumber}>{number}</span>
+        <ContactName>{name}</ContactName>
+        <ContactNumber>{number}</ContactNumber>
       </Box>
 
-      <button
+      <DelBtn
         type="button"
-        className={css.delButton}
         onClick={() => handleDelete(id)}
         aria-label="Delete contact"
-        // disabled={isLoading}
       >
         <MdDeleteForever size="18" />
-      </button>
+      </DelBtn>
 
       <Box position="absolute" right="0" top="0">
         {showEditForm && (

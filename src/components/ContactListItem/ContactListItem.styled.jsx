@@ -1,15 +1,17 @@
-.contactName {
+import styled from '@emotion/styled';
+
+export const ContactName = styled.span`
   margin-left: 8px;
   font-size: 16px;
   font-weight: 600;
-}
+`;
 
-.contactNumber {
+export const ContactNumber = styled.span`
   margin: 0 4px 0 auto;
   font-size: 14px;
-}
+`;
 
-.delButton {
+export const DelBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,8 +22,8 @@
   color: #666666;
 
   transition: color 250ms linear;
-}
 
-.delButton:hover {
-  color: red;
-}
+  :hover {
+    color: red;
+  }
+`;
