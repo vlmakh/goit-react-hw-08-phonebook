@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -12,18 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authSlice } from './auth';
 import { contactsSlice } from './contacts';
-
-const myFilter = createSlice({
-  name: 'filter',
-  initialState: {
-    filter: '',
-  },
-  reducers: {
-    filterChange: (state, action) => {
-      state.filter = action.payload;
-    },
-  },
-});
+import { filterSlice } from './filter';
 
 const authPersistConfig = {
   key: 'auth',
@@ -36,11 +25,9 @@ const authPersistedReducer = persistReducer(
   authSlice.reducer
 );
 
-export const { filterChange } = myFilter.actions;
-
 export const store = configureStore({
   reducer: {
-    filter: myFilter.reducer,
+    filter: filterSlice.reducer,
     auth: authPersistedReducer,
     phonebook: contactsSlice.reducer,
   },

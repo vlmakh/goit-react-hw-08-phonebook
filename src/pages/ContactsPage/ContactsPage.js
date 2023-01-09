@@ -5,7 +5,7 @@ import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { filterChange } from 'redux/store';
+import { filterChange } from 'redux/filter';
 import { logout } from 'redux/operations';
 import { getContacts, addContact } from 'redux/operations';
 import { Button } from './ContactsPage.styled';
