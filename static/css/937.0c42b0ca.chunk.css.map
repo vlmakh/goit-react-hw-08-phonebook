@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/937.0c42b0ca.chunk.css","mappings":"AAAA,6BAEI,cAAe,CADf,eAEJ","sources":["components/Notification/Notification.module.css"],"sourcesContent":[".msgText {\n    margin-top: 20px;\n    font-size: 16px;\n}"],"names":[],"sourceRoot":""}
