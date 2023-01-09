@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { filterChange } from 'redux/filter';
 import { logout } from 'redux/operations';
-import { getContacts, addContact } from 'redux/operations';
+import { getContacts } from 'redux/operations';
 import { Button } from './ContactsPage.styled';
 import { Notification } from 'components/Notification/Notification';
 
@@ -21,20 +21,6 @@ export default function ContactsPage() {
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
-
-  const handleAdd = async (newContact, resetForm) => {
-    if (
-      contacts.find(
-        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-      )
-    ) {
-      alert(` ${newContact.name} is already in contacts.`);
-      return;
-    }
-
-    dispatch(addContact(newContact));
-    resetForm();
-  };
 
   const handleFilter = event => {
     dispatch(filterChange(event.currentTarget.value));
@@ -58,7 +44,7 @@ export default function ContactsPage() {
           </Button>
         </Box>
 
-        <AddForm onFormSubmit={handleAdd} />
+        <AddForm />
 
         <Box
           py={2}
