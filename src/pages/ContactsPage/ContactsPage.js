@@ -9,6 +9,7 @@ import { filterChange } from 'redux/filter';
 import { logout } from 'redux/operations';
 import { getContacts, addContact } from 'redux/operations';
 import { Button } from './ContactsPage.styled';
+import { Notification } from 'components/Notification/Notification';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -67,7 +68,11 @@ export default function ContactsPage() {
           boxShadow="0px 4px 8px rgba(0, 0, 0, 0.8)"
           backgroundColor="white"
         >
-          <Filter value={filter} onChange={handleFilter} />
+          {filteredContacts.length > 0 || filter ? (
+            <Filter value={filter} onChange={handleFilter} />
+          ) : (
+            <Notification msg="No contacts added" />
+          )}
 
           <ContactList contacts={filteredContacts ?? []} />
         </Box>
