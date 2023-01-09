@@ -1,22 +1,24 @@
-.addForm {
+import styled from '@emotion/styled';
+import { Form, Field, ErrorMessage } from 'formik';
+
+export const FormStyled = styled(Form)`
   text-align: left;
   width: 320px;
-  /* margin: 8px auto 0; */
   padding: 16px;
   border: 1px solid #212121;
   border-radius: 4px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
   background-color: white;
-}
+`;
 
-.addInput {
+export const Input = styled(Field)`
   display: flex;
   align-items: center;
   margin-left: 8px;
   padding: 4px;
-}
+`;
 
-.addButton {
+export const AddBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,14 +31,14 @@
   cursor: pointer;
 
   transition: color 250ms linear, background-color 250ms linear;
-}
 
-.addButton:hover {
-  background-color: #ffcc00;
-  color: white;
-}
+  :hover {
+    background-color: #ffcc00;
+    color: white;
+  }
+`;
 
-.mistake {
+export const ErrorStyled = styled(ErrorMessage)`
   position: absolute;
   bottom: 0;
   transform: translatey(100%);
@@ -44,4 +46,4 @@
   font-size: 10px;
   background-color: white;
   color: #212121;
-}
+`;
