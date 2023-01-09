@@ -14,7 +14,7 @@ import {
   Button,
   Footer,
 } from './ContactsPage.styled';
-// import { Notification } from 'components/Notification/Notification';
+import { Notification } from 'components/Notification/Notification';
 import Modal from 'components/Modal/Modal';
 
 export default function ContactsPage() {
@@ -62,19 +62,11 @@ export default function ContactsPage() {
       </Header>
 
       <Contacts>
-        <Box
-          // border="1px solid #212121"
-          // boxShadow="0px 4px 8px rgba(0, 0, 0, 0.8)"
-          backgroundColor="white"
-        >
-          {/* {filteredContacts.length > 0 || filter ? (
-            <Filter />
-          ) : (
-            <Notification msg="No contacts added" />
-          )} */}
-
+        {filteredContacts.length > 0 || filter ? (
           <ContactList contacts={filteredContacts ?? []} />
-        </Box>
+        ) : (
+          <Notification msg="No contacts added" />
+        )}
       </Contacts>
 
       <Footer>

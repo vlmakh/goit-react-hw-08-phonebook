@@ -18,8 +18,6 @@ export const Container = styled.div`
 
 export const Contacts = styled.div`
   width: 320px;
-  /* min-height: 100vh; */
-  /* margin: 68px auto 36px; */
   margin: 0 auto;
   background-color: #FFFFFF;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
