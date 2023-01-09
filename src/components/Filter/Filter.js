@@ -12,7 +12,7 @@ export function Filter() {
   };
 
   return (
-    <Box p={2}>
+    <Box py={1} px={2}>
       <Input
         type="text"
         name="filter"

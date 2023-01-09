@@ -12,7 +12,7 @@ let schema = yup.object().shape({
   number: yup.number().required(),
 });
 
-export function AddForm() {
+export function AddForm({ toggleModalForm }) {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts);
 
@@ -28,6 +28,7 @@ export function AddForm() {
 
     dispatch(addContact(newContact));
     resetForm();
+    toggleModalForm();
   };
 
   return (
