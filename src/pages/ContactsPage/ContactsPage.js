@@ -13,12 +13,9 @@ import { Button } from './ContactsPage.styled';
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter.filter);
-  const statePhonebook = useSelector(state => state.phonebook);
+  const contacts = useSelector(state => state.phonebook);
   const userName = useSelector(state => state.auth.user.name);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-
-  // const contacts = isLoggedIn ? statePhonebook : [];
-  const contacts = statePhonebook;
 
   useEffect(() => {
     dispatch(getContacts());
@@ -71,16 +68,6 @@ export default function ContactsPage() {
           backgroundColor="white"
         >
           <Filter value={filter} onChange={handleFilter} />
-
-          {/* {error && (
-            <p>Sorry, there is some error. Please try to reload page...</p>
-          )}
-
-          {isLoading ? (
-            'Loading...'
-          ) : (
-            <ContactList contacts={filteredContacts ?? []} />
-          )} */}
 
           <ContactList contacts={filteredContacts ?? []} />
         </Box>

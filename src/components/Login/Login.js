@@ -8,7 +8,6 @@ import {
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/operations';
-// import { NavLink, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
 
 let schema = yup.object().shape({
