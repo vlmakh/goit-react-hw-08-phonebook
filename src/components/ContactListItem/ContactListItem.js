@@ -34,8 +34,14 @@ export function ContactListItem({ id, name, number }) {
 
   return (
     <>
-      <Box width="100%" display="flex" onClick={toggleEditForm}>
-        <BsPersonCircle size="18" color={getRandomHexColor()} />
+      <Box
+        width="100%"
+        display="flex"
+        onClick={toggleEditForm}
+        alignItems="center"
+        p={2}
+      >
+        <BsPersonCircle size="20" color={getRandomHexColor()} />
         <span className={css.contactName}>{name}</span>
         <span className={css.contactNumber}>{number}</span>
       </Box>

@@ -15,7 +15,6 @@ export const contactsSlice = createSlice({
         return action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {
-        // console.log(state);
         state.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
