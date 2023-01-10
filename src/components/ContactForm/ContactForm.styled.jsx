@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
-  text-align: left;
+  text-align: center;
   width: 360px;
   padding: 16px;
   border: 1px solid #212121;
