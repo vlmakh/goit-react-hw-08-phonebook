@@ -33,6 +33,7 @@ export const FormBtn = styled.button`
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
+  font-weight: 700;
 
   transition: color 250ms linear, background-color 250ms linear;
 

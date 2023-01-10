@@ -4,11 +4,6 @@ import { Formik } from 'formik';
 import { FormStyled, FormBtn } from 'components/ContactForm/ContactForm.styled';
 
 export function Confirm({ onFormSubmit, toggleConfirm, name }) {
-  const handleSubmit = e => {
-    e.preventDefault();
-    onFormSubmit();
-  };
-
   return (
     <Formik>
       <FormStyled>
@@ -23,7 +18,7 @@ export function Confirm({ onFormSubmit, toggleConfirm, name }) {
           <FormBtn
             type="button"
             aria-label="Delete contact"
-            onClick={handleSubmit}
+            onClick={onFormSubmit}
           >
             DELETE
           </FormBtn>
