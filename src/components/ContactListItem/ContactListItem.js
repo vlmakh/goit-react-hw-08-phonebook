@@ -8,19 +8,25 @@ import { EditForm } from 'components/EditForm/EditForm';
 import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
 import { ContactName, ContactNumber, DelBtn } from './ContactListItem.styled';
+import { Confirm } from 'components/Confirm/Confirm';
 
 export function ContactListItem({ id, name, number }) {
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const dispatch = useDispatch();
 
   const toggleEditForm = () => {
     setShowEditForm(!showEditForm);
   };
 
+  const toggleConfirm = () => {
+    setShowConfirm(!showConfirm);
+  };
+
   const handleDelete = contactId => {
-    if (global.confirm('Delete contact?')) {
-      dispatch(deleteContact(contactId));
-    }
+    // if (global.confirm('Delete contact?')) {
+    dispatch(deleteContact(contactId));
+    // }
   };
 
   const handleUpdate = updatedContact => {
@@ -48,23 +54,32 @@ export function ContactListItem({ id, name, number }) {
 
       <DelBtn
         type="button"
-        onClick={() => handleDelete(id)}
+        // onClick={() => handleDelete(id)}
+        onClick={() => setShowConfirm(true)}
         aria-label="Delete contact"
       >
         <MdDeleteForever size="18" />
       </DelBtn>
 
-      <Box position="absolute" right="0" top="0">
-        {showEditForm && (
-          <Modal onClose={toggleEditForm}>
-            <EditForm
-              onFormSubmit={handleUpdate}
-              nameToUpdate={name}
-              numberToUpdate={number}
-            />
-          </Modal>
-        )}
-      </Box>
+      {showEditForm && (
+        <Modal onClose={toggleEditForm}>
+          <EditForm
+            onFormSubmit={handleUpdate}
+            nameToUpdate={name}
+            numberToUpdate={number}
+          />
+        </Modal>
+      )}
+
+      {showConfirm && (
+        <Modal onClose={toggleConfirm}>
+          <Confirm
+            onFormSubmit={() => handleDelete(id)}
+            toggleConfirm={toggleConfirm}
+            name={name}
+          />
+        </Modal>
+      )}
     </>
   );
 }
