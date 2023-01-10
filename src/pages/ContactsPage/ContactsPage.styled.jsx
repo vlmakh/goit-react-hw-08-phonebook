@@ -12,12 +12,12 @@ export const Header = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 320px;
+  max-width: 360px;
   margin: 0 auto;
 `
 
 export const Contacts = styled.div`
-  width: 320px;
+  max-width: 360px;
   margin: 0 auto;
   background-color: #FFFFFF;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);

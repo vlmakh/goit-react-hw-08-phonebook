@@ -5,7 +5,12 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
-import { FormStyled, Input, AddBtn, ErrorStyled } from './AddForm.styled';
+import {
+  FormStyled,
+  Input,
+  SaveBtn,
+  ErrorStyled,
+} from 'components/ContactForm/ContactForm.styled';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
@@ -56,9 +61,9 @@ export function AddForm({ toggleModalForm }) {
             </Box>
           </Box>
 
-          <AddBtn type="submit" aria-label="Add contact">
+          <SaveBtn type="submit" aria-label="Add contact">
             <MdOutlineDataSaverOn size="40" fill="currentColor" />
-          </AddBtn>
+          </SaveBtn>
         </Box>
       </FormStyled>
     </Formik>

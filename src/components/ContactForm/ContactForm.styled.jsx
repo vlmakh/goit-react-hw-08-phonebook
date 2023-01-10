@@ -3,12 +3,16 @@ import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
   text-align: left;
-  width: 320px;
+  width: 360px;
   padding: 16px;
   border: 1px solid #212121;
   border-radius: 4px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
   background-color: white;
+
+  @media screen and (max-width: 360px) {
+    width: 100%;
+  }
 `;
 
 export const Input = styled(Field)`
@@ -45,5 +49,5 @@ export const ErrorStyled = styled(ErrorMessage)`
 
   font-size: 10px;
   background-color: white;
-  color: #FF0000;
+  color: #212121;
 `;

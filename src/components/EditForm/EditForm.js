@@ -4,7 +4,12 @@ import { MdSave } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { FormStyled, Input, SaveBtn, ErrorStyled } from './EditForm.styled';
+import {
+  FormStyled,
+  Input,
+  SaveBtn,
+  ErrorStyled,
+} from 'components/ContactForm/ContactForm.styled';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
