@@ -8,7 +8,7 @@ import { addContact } from 'redux/operations';
 import {
   FormStyled,
   Input,
-  SaveBtn,
+  FormBtn,
   ErrorStyled,
 } from 'components/ContactForm/ContactForm.styled';
 
@@ -61,9 +61,9 @@ export function AddForm({ toggleModalForm }) {
             </Box>
           </Box>
 
-          <SaveBtn type="submit" aria-label="Add contact">
+          <FormBtn type="submit" aria-label="Add contact">
             <MdOutlineDataSaverOn size="40" fill="currentColor" />
-          </SaveBtn>
+          </FormBtn>
         </Box>
       </FormStyled>
     </Formik>

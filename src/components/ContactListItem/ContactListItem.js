@@ -24,9 +24,7 @@ export function ContactListItem({ id, name, number }) {
   };
 
   const handleDelete = contactId => {
-    // if (global.confirm('Delete contact?')) {
     dispatch(deleteContact(contactId));
-    // }
   };
 
   const handleUpdate = updatedContact => {
@@ -54,7 +52,6 @@ export function ContactListItem({ id, name, number }) {
 
       <DelBtn
         type="button"
-        // onClick={() => handleDelete(id)}
         onClick={() => setShowConfirm(true)}
         aria-label="Delete contact"
       >

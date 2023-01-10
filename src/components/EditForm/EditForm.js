@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import {
   FormStyled,
   Input,
-  SaveBtn,
+  FormBtn,
   ErrorStyled,
 } from 'components/ContactForm/ContactForm.styled';
 
@@ -46,9 +46,9 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
             </Box>
           </Box>
 
-          <SaveBtn type="submit" aria-label="Save contact">
+          <FormBtn type="submit" aria-label="Formtact">
             <MdSave size="40" />
-          </SaveBtn>
+          </FormBtn>
         </Box>
       </FormStyled>
     </Formik>

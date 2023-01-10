@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-// import { MdSave } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
-import { FormConfirm, ConfirmBtn } from './Confirm.styled';
+import { Formik } from 'formik';
+import { FormStyled, FormBtn } from 'components/ContactForm/ContactForm.styled';
 
 export function Confirm({ onFormSubmit, toggleConfirm, name }) {
   const handleSubmit = e => {
@@ -10,24 +10,26 @@ export function Confirm({ onFormSubmit, toggleConfirm, name }) {
   };
 
   return (
-    <FormConfirm>
-      <p>
-        Delete contact <b>{name}</b>?
-      </p>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <ConfirmBtn type="button" aria-label="Cancel" onClick={toggleConfirm}>
-          Cancel
-        </ConfirmBtn>
+    <Formik>
+      <FormStyled>
+        <p>
+          Delete contact <b>{name}</b>?
+        </p>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <FormBtn type="button" aria-label="Cancel" onClick={toggleConfirm}>
+            Cancel
+          </FormBtn>
 
-        <ConfirmBtn
-          type="submit"
-          aria-label="Delete contact"
-          onClick={handleSubmit}
-        >
-          DELETE
-        </ConfirmBtn>
-      </Box>
-    </FormConfirm>
+          <FormBtn
+            type="button"
+            aria-label="Delete contact"
+            onClick={handleSubmit}
+          >
+            DELETE
+          </FormBtn>
+        </Box>
+      </FormStyled>
+    </Formik>
   );
 }
 

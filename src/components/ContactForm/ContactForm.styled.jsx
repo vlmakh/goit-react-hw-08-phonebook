@@ -22,7 +22,7 @@ export const Input = styled(Field)`
   padding: 4px;
 `;
 
-export const SaveBtn = styled.button`
+export const FormBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
