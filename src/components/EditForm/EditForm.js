@@ -4,6 +4,7 @@ import { MdSave } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import 'yup-phone';
 import {
   FormStyled,
   Input,
@@ -13,7 +14,7 @@ import {
 
 let schema = yup.object().shape({
   name: yup.string().required(),
-  number: yup.string().required(),
+  number: yup.string().phone().required(),
 });
 
 export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {

@@ -3,6 +3,7 @@ import { MdOutlineDataSaverOn } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import 'yup-phone';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import {
@@ -14,14 +15,14 @@ import {
 
 let schema = yup.object().shape({
   name: yup.string().required(),
-  number: yup.number().required(),
+  number: yup.string().phone().required(),
 });
 
 export function AddForm({ toggleModalForm }) {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts);
 
-  const handleSubmit = async (newContact, { resetForm }) => {
+  const handleSubmit = (newContact, { resetForm }) => {
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
