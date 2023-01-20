@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { MdDeleteForever } from 'react-icons/md';
+import { MdEdit, MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -7,7 +7,12 @@ import Modal from 'components/Modal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
 import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
-import { ContactName, ContactNumber, DelBtn } from './ContactListItem.styled';
+import {
+  ContactName,
+  ContactNumber,
+  EditBtn,
+  DelBtn,
+} from './ContactListItem.styled';
 import { Confirm } from 'components/Confirm/Confirm';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 
@@ -35,17 +40,15 @@ export function ContactListItem({ id, name, number }) {
 
   return (
     <>
-      <Box
-        width="100%"
-        display="flex"
-        onClick={toggleEditForm}
-        alignItems="center"
-        p={2}
-      >
+      <Box width="100%" display="flex" alignItems="center" p={2}>
         <BsPersonCircle size="20" color={getRandomHexColor()} />
         <ContactName>{name}</ContactName>
         <ContactNumber>{number}</ContactNumber>
       </Box>
+
+      <EditBtn type="button" onClick={toggleEditForm} aria-label="Edit contact">
+        <MdEdit size="18" />
+      </EditBtn>
 
       <DelBtn
         type="button"

@@ -5,7 +5,6 @@ export const Item = styled.li`
   align-items: center;
   padding-right: 8px;
   color: #212121;
-  cursor: pointer;
 
   transition: background-color 250ms linear;
 
