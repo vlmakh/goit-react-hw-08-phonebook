@@ -27,7 +27,7 @@ export const ContactBtn = styled.button`
 
 export const EditBtn = styled(ContactBtn)`
   :hover {
-    color: blue;
+    color: #212121;
   }
 `;
 

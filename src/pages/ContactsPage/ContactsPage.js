@@ -1,19 +1,15 @@
 import { Box } from 'components/Box/Box';
+import { Header, Container, Contacts, Footer } from './ContactsPage.styled';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import { Button } from 'components/Button/Button.styled';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { getContacts } from 'redux/operations';
-import {
-  Header,
-  Container,
-  Contacts,
-  Button,
-  Footer,
-} from './ContactsPage.styled';
+
 import { Notification } from 'components/Notification/Notification';
 import Modal from 'components/Modal/Modal';
 

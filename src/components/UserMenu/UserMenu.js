@@ -1,4 +1,5 @@
-import { UserMenuWrap, Button } from './UserMenu.styled';
+import { UserMenuWrap } from './UserMenu.styled';
+import { Button } from 'components/Button/Button.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/operations';
 
