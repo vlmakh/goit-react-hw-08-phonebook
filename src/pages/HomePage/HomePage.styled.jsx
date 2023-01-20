@@ -7,7 +7,7 @@ export const LoginBox = styled('div')`
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   text-align: center;
-  width: 320px;
+  width: 360px;
   height: 300px;
   border: 1px solid #212121;
   border-radius: 8px;
