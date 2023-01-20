@@ -7,21 +7,23 @@ export function Confirm({ onFormSubmit, toggleConfirm, name }) {
   return (
     <Formik>
       <FormStyled>
-        <p>
-          Delete contact <b>{name}</b>?
-        </p>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <FormBtn type="button" aria-label="Cancel" onClick={toggleConfirm}>
-            Cancel
-          </FormBtn>
+        <Box width="100%">
+          <p>
+            Delete contact <b>{name}</b>?
+          </p>
+          <Box display="flex" justifyContent="space-between">
+            <FormBtn type="button" aria-label="Cancel" onClick={toggleConfirm}>
+              Cancel
+            </FormBtn>
 
-          <FormBtn
-            type="button"
-            aria-label="Delete contact"
-            onClick={onFormSubmit}
-          >
-            DELETE
-          </FormBtn>
+            <FormBtn
+              type="button"
+              aria-label="Delete contact"
+              onClick={onFormSubmit}
+            >
+              DELETE
+            </FormBtn>
+          </Box>
         </Box>
       </FormStyled>
     </Formik>

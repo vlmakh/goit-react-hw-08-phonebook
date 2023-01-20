@@ -2,7 +2,9 @@ import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const FormStyled = styled(Form)`
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 360px;
   padding: 16px;
   border: 1px solid #212121;
@@ -14,6 +16,16 @@ export const FormStyled = styled(Form)`
     width: 100%;
   }
 `;
+
+export const FormField = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+`
 
 export const Input = styled(Field)`
   display: flex;

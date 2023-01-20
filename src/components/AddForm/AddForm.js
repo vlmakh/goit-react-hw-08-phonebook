@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import {
   FormStyled,
+  FormField,
   Input,
   FormBtn,
   ErrorStyled,
@@ -23,6 +24,7 @@ export function AddForm({ toggleModalForm }) {
   const contacts = useSelector(state => state.contacts);
 
   const handleSubmit = (newContact, { resetForm }) => {
+    console.log(newContact);
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
@@ -47,25 +49,23 @@ export function AddForm({ toggleModalForm }) {
       validationSchema={schema}
     >
       <FormStyled>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box>
-            <Box display="flex" alignItems="center" position="relative">
-              <HiUserAdd />
-              <Input type="text" name="name" placeholder="Name" />
-              <ErrorStyled component="div" name="name" />
-            </Box>
+        <Box>
+          <FormField>
+            <HiUserAdd />
+            <Input type="text" name="name" placeholder="Name" />
+            <ErrorStyled component="div" name="name" />
+          </FormField>
 
-            <Box display="flex" alignItems="center" mt={3} position="relative">
-              <HiPhone />
-              <Input type="tel" name="number" placeholder="number" />
-              <ErrorStyled component="div" name="number" />
-            </Box>
-          </Box>
-
-          <FormBtn type="submit" aria-label="Add contact">
-            <MdOutlineDataSaverOn size="40" fill="currentColor" />
-          </FormBtn>
+          <FormField>
+            <HiPhone />
+            <Input type="tel" name="number" placeholder="number" />
+            <ErrorStyled component="div" name="number" />
+          </FormField>
         </Box>
+
+        <FormBtn type="submit" aria-label="Add contact">
+          <MdOutlineDataSaverOn size="40" fill="currentColor" />
+        </FormBtn>
       </FormStyled>
     </Formik>
   );

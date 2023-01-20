@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import 'yup-phone';
 import {
   FormStyled,
+  FormField,
   Input,
   FormBtn,
   ErrorStyled,
@@ -19,6 +20,7 @@ let schema = yup.object().shape({
 
 export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
   const updateContact = values => {
+    console.log(values);
     onFormSubmit(values);
   };
 
@@ -32,25 +34,23 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
       validationSchema={schema}
     >
       <FormStyled>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box>
-            <Box display="flex" alignItems="center" position="relative">
-              <HiUserAdd />
-              <Input type="text" name="name" placeholder="Name" />
-              <ErrorStyled component="div" name="name" />
-            </Box>
+        <Box>
+          <FormField>
+            <HiUserAdd />
+            <Input type="text" name="name" placeholder="Name" />
+            <ErrorStyled component="div" name="name" />
+          </FormField>
 
-            <Box display="flex" alignItems="center" mt={3} position="relative">
-              <HiPhone />
-              <Input type="tel" name="number" placeholder="number" />
-              <ErrorStyled component="div" name="number" />
-            </Box>
-          </Box>
-
-          <FormBtn type="submit" aria-label="Formtact">
-            <MdSave size="40" />
-          </FormBtn>
+          <FormField>
+            <HiPhone />
+            <Input type="tel" name="number" placeholder="number" />
+            <ErrorStyled component="div" name="number" />
+          </FormField>
         </Box>
+
+        <FormBtn type="submit" aria-label="Formtact">
+          <MdSave size="40" />
+        </FormBtn>
       </FormStyled>
     </Formik>
   );
