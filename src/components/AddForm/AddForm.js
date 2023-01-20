@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { HiPhone, HiUserAdd } from 'react-icons/hi';
 import { MdOutlineDataSaverOn } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
@@ -70,3 +71,7 @@ export function AddForm({ toggleModalForm }) {
     </Formik>
   );
 }
+
+AddForm.propTypes = {
+  toggleModalForm: PropTypes.func.isRequired,
+};
