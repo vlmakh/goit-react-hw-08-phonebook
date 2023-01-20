@@ -9,6 +9,7 @@ import { Box } from 'components/Box/Box';
 import { deleteContact, updateContact } from 'redux/operations';
 import { ContactName, ContactNumber, DelBtn } from './ContactListItem.styled';
 import { Confirm } from 'components/Confirm/Confirm';
+import { getRandomHexColor } from 'utils/getRandomHexColor';
 
 export function ContactListItem({ id, name, number }) {
   const [showEditForm, setShowEditForm] = useState(false);
@@ -31,10 +32,6 @@ export function ContactListItem({ id, name, number }) {
     dispatch(updateContact({ id, ...updatedContact }));
     toggleEditForm();
   };
-
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
 
   return (
     <>
