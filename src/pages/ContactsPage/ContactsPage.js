@@ -15,7 +15,7 @@ import Modal from 'components/Modal/Modal';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter.filter);
+  const filter = useSelector(state => state.filter);
   const contacts = useSelector(state => state.contacts);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const [showModalForm, setShowModalForm] = useState(false);

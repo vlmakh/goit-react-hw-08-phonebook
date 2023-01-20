@@ -1,18 +1,17 @@
-import { Input } from './Filter.styled';
-import { Box } from 'components/Box/Box';
+import { FilterWrap, Input } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterChange } from 'redux/filter';
 
 export function Filter() {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter.filter);
+  const filter = useSelector(state => state.filter);
 
   const handleFilter = event => {
     dispatch(filterChange(event.currentTarget.value));
   };
 
   return (
-    <Box py={1} px={2}>
+    <FilterWrap>
       <Input
         type="text"
         name="filter"
@@ -20,6 +19,6 @@ export function Filter() {
         onChange={handleFilter}
         placeholder="Find contact by name"
       />
-    </Box>
+    </FilterWrap>
   );
 }
