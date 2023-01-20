@@ -1,11 +1,11 @@
 import { Box } from 'components/Box/Box';
+import { UserMenu } from 'components/UserMenu/UserMenu';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { logout } from 'redux/operations';
 import { getContacts } from 'redux/operations';
 import {
   Header,
@@ -21,7 +21,6 @@ export default function ContactsPage() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter.filter);
   const contacts = useSelector(state => state.contacts);
-  const userName = useSelector(state => state.auth.user.name);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const [showModalForm, setShowModalForm] = useState(false);
 
@@ -45,18 +44,8 @@ export default function ContactsPage() {
 
       <Header>
         <Container>
-          <Box
-            px={2}
-            py={1}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <h4>Welcome, {userName}</h4>
-            <Button type="button" onClick={() => dispatch(logout())}>
-              Logout
-            </Button>
-          </Box>
+          <UserMenu />
+
           <Filter />
         </Container>
       </Header>
