@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  getContacts,
+  fetchContacts,
   addContact,
   deleteContact,
   updateContact,
@@ -11,17 +11,14 @@ export const contactsSlice = createSlice({
   initialState: [],
   extraReducers: builder => {
     builder
-      .addCase(getContacts.fulfilled, (_, action) => {
+      .addCase(fetchContacts.fulfilled, (_, action) => {
         return action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        const index = state.findIndex(
-          contact => contact.id === action.payload.id
-        );
-        state.splice(index, 1);
+        return state.filter(contact => contact.id !== action.payload.id);
       })
       .addCase(updateContact.fulfilled, (state, action) => {
         const index = state.findIndex(

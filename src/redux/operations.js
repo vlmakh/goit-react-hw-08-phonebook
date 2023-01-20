@@ -64,8 +64,8 @@ export const logout = createAsyncThunk('auth/logout', async () => {
   }
 });
 
-export const getContacts = createAsyncThunk(
-  'contacts/getContacts',
+export const fetchContacts = createAsyncThunk(
+  'contacts/fetchContacts',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/contacts`);

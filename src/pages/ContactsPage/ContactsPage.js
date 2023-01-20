@@ -8,7 +8,7 @@ import { Button } from 'components/Button/Button.styled';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/operations';
 
 import { Notification } from 'components/Notification/Notification';
 import Modal from 'components/Modal/Modal';
@@ -21,7 +21,7 @@ export default function ContactsPage() {
   const [showModalForm, setShowModalForm] = useState(false);
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   const filteredContacts = contacts
