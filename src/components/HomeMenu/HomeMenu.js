@@ -2,8 +2,6 @@ import { HomeMenuWrap, HomeLink } from './HomeMenu.styled';
 import { ButtonLink } from 'components/Button/Button.styled';
 
 export function HomeMenu() {
-  //   const dispatch = useDispatch();
-
   return (
     <HomeMenuWrap>
       <HomeLink to="/">Phonebook</HomeLink>

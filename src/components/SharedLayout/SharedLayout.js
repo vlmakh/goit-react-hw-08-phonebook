@@ -3,7 +3,6 @@ import { Header, Footer, FooterLink } from './SharedLayout.styled';
 import { Container } from 'components/Container/Container';
 import { Suspense } from 'react';
 import { Box } from 'components/Box/Box';
-// import logo from 'images/logo.png';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { HomeMenu } from 'components/HomeMenu/HomeMenu';
 import { Bars } from 'react-loader-spinner';
@@ -21,7 +20,12 @@ export const SharedLayout = () => {
 
       <Suspense
         fallback={
-          <Box pt="100px" display="flex" justifyContent="center">
+          <Box
+            height="100vh"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Bars
               height="60"
               width="80"
