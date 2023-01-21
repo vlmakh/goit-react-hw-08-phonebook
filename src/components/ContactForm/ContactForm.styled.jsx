@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
+import InputMask from 'react-input-mask';
 
 export const FormStyled = styled(Form)`
   display: flex;
@@ -28,6 +29,13 @@ export const FormField = styled.div`
 `
 
 export const Input = styled(Field)`
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 4px;
+`;
+
+export const InputMaskStyled = styled(InputMask)`
   display: flex;
   align-items: center;
   margin-left: 8px;

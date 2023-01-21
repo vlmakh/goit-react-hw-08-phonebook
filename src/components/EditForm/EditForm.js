@@ -4,18 +4,18 @@ import { MdSave } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import 'yup-phone';
 import {
   FormStyled,
   FormField,
   Input,
+  InputMaskStyled,
   FormBtn,
   ErrorStyled,
 } from 'components/ContactForm/ContactForm.styled';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
-  number: yup.string().phone().required(),
+  number: yup.string().required(),
 });
 
 export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
@@ -43,7 +43,17 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
 
           <FormField>
             <HiPhone />
-            <Input type="tel" name="number" placeholder="number" />
+            <Input
+              type="tel"
+              name="number"
+              render={({ field }) => (
+                <InputMaskStyled
+                  {...field}
+                  mask="+99 999 999 9999"
+                  placeholder="number"
+                />
+              )}
+            />
             <ErrorStyled component="div" name="number" />
           </FormField>
         </Box>

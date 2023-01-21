@@ -10,6 +10,7 @@ import {
   FormStyled,
   FormField,
   Input,
+  InputMaskStyled,
   FormBtn,
   ErrorStyled,
 } from 'components/ContactForm/ContactForm.styled';
@@ -57,7 +58,17 @@ export function AddForm({ toggleModalForm }) {
 
           <FormField>
             <HiPhone />
-            <Input type="tel" name="number" placeholder="number" />
+            <Input
+              type="tel"
+              name="number"
+              render={({ field }) => (
+                <InputMaskStyled
+                  {...field}
+                  mask="+99 999 999 9999"
+                  placeholder="number"
+                />
+              )}
+            />
             <ErrorStyled component="div" name="number" />
           </FormField>
         </Box>

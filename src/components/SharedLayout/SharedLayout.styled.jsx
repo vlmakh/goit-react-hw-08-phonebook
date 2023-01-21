@@ -40,6 +40,6 @@ export const FooterLink = styled.a`
 
   :hover,
   :focus {
-    color: #ffcc00;
+    color: ${p => p.theme.colors.accentHover};
   }
 `;
