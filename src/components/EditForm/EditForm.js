@@ -22,7 +22,6 @@ let schema = yup.object().shape({
 
 export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
   const updateContact = values => {
-    console.log(values);
     onFormSubmit(values);
   };
 
@@ -53,17 +52,15 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
 
             <FormField>
               <HiPhone />
-              <Field
-                type="tel"
-                name="number"
-                render={({ field }) => (
+              <Field type="tel" name="number">
+                {({ field }) => (
                   <InputNumber
                     {...field}
                     mask="+99 999 999 9999"
                     placeholder="number"
                   />
                 )}
-              />
+              </Field>
               <ErrorStyled component="div" name="number" />
             </FormField>
           </Box>
