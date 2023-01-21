@@ -40,7 +40,7 @@ export function ContactListItem({ id, name, number }) {
 
   return (
     <>
-      <Box width="100%" display="flex" alignItems="center" p={2}>
+      <Box width="100%" display="flex" alignItems="center" py={3}>
         <BsPersonCircle size="20" color={getRandomHexColor()} />
         <ContactName>{name}</ContactName>
         <ContactNumber>{number}</ContactNumber>

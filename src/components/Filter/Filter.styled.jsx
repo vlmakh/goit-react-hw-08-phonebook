@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const FilterWrap = styled.div`
-  padding: 4px 8px;
+  padding: 8px;
 `
 
 export const Input = styled.input`

@@ -5,7 +5,7 @@ export const Header = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 68px;
+  height: 60px;
   background: #212121;
   color: #ffffff;
   z-index: 1000;
@@ -25,7 +25,7 @@ export const Footer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 36px;
+  height: 40px;
   background: #212121;
   color: #ffffff;
   z-index: 1000;

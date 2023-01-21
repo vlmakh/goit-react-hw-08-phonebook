@@ -38,7 +38,7 @@ export default function ContactsPage() {
       {!isLoggedIn && <Navigate to="/login" />}
 
       <Box
-        p={2}
+        pr={3}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
