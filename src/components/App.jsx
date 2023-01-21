@@ -8,6 +8,7 @@ import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Registration/Registration'));
@@ -37,18 +38,21 @@ export const App = () => {
         }
       >
         <Routes>
-          <Route path="/" element={<HomePage />}>
-            <Route index element={<RestrictedRoute component={<Login />} />} />
-            <Route
-              path="/registration"
-              element={<RestrictedRoute component={<Registration />} />}
+          <Route          path="/"          element={            <SharedLayout        />          }
+        >
+              <Route path="/" element={<HomePage />}>
+                <Route index element={<RestrictedRoute component={<Login />} />} />
+                <Route
+                  path="/registration"
+                  element={<RestrictedRoute component={<Registration />} />}
+                />
+              </Route>
+              <Route
+                path="/contacts"
+                element={<PrivateRoute component={<ContactsPage />} />}
             />
+            
           </Route>
-          <Route
-            path="/contacts"
-            element={<PrivateRoute component={<ContactsPage />} />}
-          />
-
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>

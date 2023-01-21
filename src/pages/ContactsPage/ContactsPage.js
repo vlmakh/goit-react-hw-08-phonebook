@@ -1,6 +1,5 @@
 import { Box } from 'components/Box/Box';
-import { Header, Container, Contacts, Footer } from './ContactsPage.styled';
-import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Container, Contacts } from './ContactsPage.styled';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
@@ -38,13 +37,9 @@ export default function ContactsPage() {
     <>
       {!isLoggedIn && <Navigate to="/" />}
 
-      <Header>
-        <Container>
-          <UserMenu />
-
-          <Filter />
-        </Container>
-      </Header>
+      <Container>
+        <Filter />
+      </Container>
 
       <Contacts>
         {filteredContacts.length > 0 || filter ? (
@@ -54,13 +49,11 @@ export default function ContactsPage() {
         )}
       </Contacts>
 
-      <Footer>
-        <Container>
-          <Button type="button" onClick={toggleModalForm}>
-            Add Contact
-          </Button>
-        </Container>
-      </Footer>
+      <Container>
+        <Button type="button" onClick={toggleModalForm}>
+          Add Contact
+        </Button>
+      </Container>
 
       <Box position="absolute" right="0" top="0">
         {showModalForm && (
