@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { Box } from 'components/Box/Box';
 // import logo from 'images/logo.png';
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { HomeMenu } from 'components/HomeMenu/HomeMenu';
 import { Bars } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 
@@ -15,7 +16,7 @@ export const SharedLayout = () => {
       <Header>
         <Container>
           {isLoggedIn && <UserMenu />}
-          {!isLoggedIn && 'Phonebook'}
+          {!isLoggedIn && <HomeMenu />}
         </Container>
       </Header>
 
