@@ -1,12 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Container, Footer } from './SharedLayout.styled';
+import { Header, Container, Footer, FooterLink } from './SharedLayout.styled';
 import { Suspense } from 'react';
 import { Box } from 'components/Box/Box';
 // import logo from 'images/logo.png';
-import { Button } from 'components/Button/Button.styled';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Bars } from 'react-loader-spinner';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -40,9 +39,10 @@ export const SharedLayout = () => {
 
       <Footer>
         <Container>
-          {/* <Button type="button" onClick={toggleModalForm}>
-            Add Contact
-          </Button> */}
+          2023{' '}
+          <FooterLink href="mailto:vlmakh@gmail.com">
+            vlmakh@gmail.com
+          </FooterLink>
         </Container>
       </Footer>
     </>

@@ -1,15 +1,4 @@
 import styled from '@emotion/styled';
-// import { NavLink } from 'react-router-dom';
-
-export const Layout = styled.div`
-  display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100vh;
-  /* padding-top: ${p => p.theme.space[1]}px;
-  background-color: ${p => p.theme.colors.bcgMain}; */
-
-  transition: background-color 250ms linear;
-`;
 
 export const Header = styled.div`
   position: fixed;
@@ -25,7 +14,8 @@ export const Header = styled.div`
 export const Container = styled.div`
   max-width: 360px;
   margin: 0 auto;
-`
+  font-weight: 700;
+`;
 
 export const Footer = styled.div`
   position: fixed;
@@ -39,4 +29,17 @@ export const Footer = styled.div`
   background: #212121;
   color: #ffffff;
   z-index: 1000;
+`;
+
+export const FooterLink = styled.a`
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+
+  transition: color 250ms linear;
+
+  :hover,
+  :focus {
+    color: #ffcc00;
+  }
 `;

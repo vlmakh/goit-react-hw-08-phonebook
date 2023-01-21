@@ -38,7 +38,12 @@ export default function ContactsPage() {
       {!isLoggedIn && <Navigate to="/" />}
 
       <Container>
-        <Filter />
+        <Box display="flex" justifyContent="space-between" p={2}>
+          <Filter />
+          <Button type="button" onClick={toggleModalForm}>
+            Add New
+          </Button>
+        </Box>
       </Container>
 
       <Contacts>
@@ -48,12 +53,6 @@ export default function ContactsPage() {
           <Notification msg="No contacts added" />
         )}
       </Contacts>
-
-      <Container>
-        <Button type="button" onClick={toggleModalForm}>
-          Add Contact
-        </Button>
-      </Container>
 
       <Box position="absolute" right="0" top="0">
         {showModalForm && (

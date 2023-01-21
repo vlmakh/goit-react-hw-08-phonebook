@@ -38,26 +38,36 @@ export const App = () => {
         }
       >
         <Routes>
-          <Route          path="/"          element={            <SharedLayout        />          }
-        >
-              <Route path="/" element={<HomePage />}>
-                <Route index element={<RestrictedRoute component={<Login />} />} />
-                <Route
-                  path="/registration"
-                  element={<RestrictedRoute component={<Registration />} />}
-                />
-              </Route>
+          <Route path="/" element={<SharedLayout />}>
+            <Route path="/" element={<HomePage />}>
               <Route
-                path="/contacts"
-                element={<PrivateRoute component={<ContactsPage />} />}
+                index
+                element={<RestrictedRoute component={<Login />} />}
+              />
+              <Route
+                path="/registration"
+                element={<RestrictedRoute component={<Registration />} />}
+              />
+            </Route>
+            <Route
+              path="/contacts"
+              element={<PrivateRoute component={<ContactsPage />} />}
             />
-            
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
 
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          duration: 2000,
+          style: {
+            fontWeight: '700',
+            background: '#fff',
+            color: '#212121',
+          },
+        }}
+      />
     </>
   );
 };
