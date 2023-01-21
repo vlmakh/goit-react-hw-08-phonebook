@@ -37,7 +37,12 @@ export default function ContactsPage() {
     <ContactPageWrap>
       {!isLoggedIn && <Navigate to="/login" />}
 
-      <Box display="flex" justifyContent="space-between" p={2}>
+      <Box
+        p={2}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Filter />
         <Button type="button" onClick={toggleModalForm}>
           Add New

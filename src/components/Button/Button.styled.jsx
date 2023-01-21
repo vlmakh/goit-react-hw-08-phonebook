@@ -6,9 +6,10 @@ export const Button = styled.button`
   padding: 4px 8px;
   font-size: 14px;
   font-weight: 700;
+  height: 24px;
   border-radius: 4px;
   border: none;
-  background-color: #fcd535;
+  background-color: #ffdf60;
   transition: background-color 250ms linear;
 
   :hover,
@@ -24,7 +25,7 @@ export const ButtonLink = styled(NavLink)`
   font-weight: 700;
   border-radius: 4px;
   border: none;
-  background-color: #fcd535;
+  background-color: #ffdf60;
   transition: background-color 250ms linear;
   text-decoration: none;
   color: #212121;
