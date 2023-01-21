@@ -1,29 +1,19 @@
 import styled from '@emotion/styled';
+import { Container } from 'components/SharedLayout/SharedLayout.styled';
 
-export const Header = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 68px;
-  background: #212121;
-  color: #ffffff;
-  z-index: 1000;
-`;
-
-export const Container = styled.div`
+export const ContactPageWrap = styled(Container)`
   max-width: 360px;
   margin: 0 auto;
-`
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+`;
 
 export const Contacts = styled.div`
   max-width: 360px;
   margin: 0 auto;
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
-  border-left: 1px solid #212121;
-  border-right: 1px solid #212121;
-`
+  background-color: #ffffff;
+  border-top: 1px solid lightgrey;
+`;
 
 export const Footer = styled.div`
   position: fixed;

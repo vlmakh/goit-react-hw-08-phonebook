@@ -3,12 +3,13 @@ import styled from '@emotion/styled';
 export const ContactName = styled.span`
   margin-left: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
 `;
 
 export const ContactNumber = styled.span`
   margin: 0 4px 0 auto;
   font-size: 14px;
+  font-weight: 400;
 `;
 
 export const ContactBtn = styled.button`

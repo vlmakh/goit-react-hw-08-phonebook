@@ -8,9 +8,10 @@ import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 
-const Login = lazy(() => import('components/Login/Login'));
-const Registration = lazy(() => import('components/Registration/Registration'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegPage = lazy(() => import('pages/RegPage/RegPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
@@ -37,23 +38,36 @@ export const App = () => {
         }
       >
         <Routes>
-          <Route path="/" element={<HomePage />}>
-            <Route index element={<RestrictedRoute component={<Login />} />} />
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<HomePage />} />
             <Route
-              path="/registration"
-              element={<RestrictedRoute component={<Registration />} />}
+              path="/login"
+              element={<RestrictedRoute component={<LoginPage />} />}
+              />
+              <Route
+                path="/registration"
+                element={<RestrictedRoute component={<RegPage />} />}
+              />  
+            
+            <Route
+              path="/contacts"
+              element={<PrivateRoute component={<ContactsPage />} />}
             />
           </Route>
-          <Route
-            path="/contacts"
-            element={<PrivateRoute component={<ContactsPage />} />}
-          />
-
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
 
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          duration: 2000,
+          style: {
+            fontWeight: '700',
+            background: '#fff',
+            color: '#212121',
+          },
+        }}
+      />
     </>
   );
 };
