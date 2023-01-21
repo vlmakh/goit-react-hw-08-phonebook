@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Container, Footer, FooterLink } from './SharedLayout.styled';
+import { Header, Footer, FooterLink } from './SharedLayout.styled';
+import { Container } from 'components/Container/Container';
 import { Suspense } from 'react';
 import { Box } from 'components/Box/Box';
 // import logo from 'images/logo.png';
@@ -14,10 +15,8 @@ export const SharedLayout = () => {
   return (
     <>
       <Header>
-        <Container>
-          {isLoggedIn && <UserMenu />}
-          {!isLoggedIn && <HomeMenu />}
-        </Container>
+        {isLoggedIn && <UserMenu />}
+        {!isLoggedIn && <HomeMenu />}
       </Header>
 
       <Suspense
