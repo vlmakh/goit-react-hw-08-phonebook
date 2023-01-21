@@ -13,7 +13,7 @@ import * as yup from 'yup';
 let schema = yup.object().shape({
   name: yup.string().required(),
   email: yup.string().email().required(),
-  password: yup.string().required(),
+  password: yup.string().min(7).required(),
 });
 
 export function Registration() {
