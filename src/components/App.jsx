@@ -7,6 +7,7 @@ import { Box } from 'components/Box/Box';
 import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
+import { Toaster } from 'react-hot-toast';
 
 const Login = lazy(() => import('components/Login/Login'));
 const Registration = lazy(() => import('components/Registration/Registration'));
@@ -51,6 +52,8 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
+
+      <Toaster />
     </>
   );
 };

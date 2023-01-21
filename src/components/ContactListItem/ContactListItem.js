@@ -30,7 +30,7 @@ export function ContactListItem({ id, name, number }) {
   };
 
   const handleDelete = contactId => {
-    dispatch(deleteContact(contactId));
+    dispatch(deleteContact({ contactId, name }));
   };
 
   const handleUpdate = updatedContact => {

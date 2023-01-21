@@ -22,7 +22,7 @@ export const FormField = styled.div`
   align-items: center;
   position: relative;
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-top: 16px;
   }
 `
