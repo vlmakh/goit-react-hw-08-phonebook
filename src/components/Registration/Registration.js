@@ -16,7 +16,7 @@ let schema = yup.object().shape({
   password: yup.string().required(),
 });
 
-export default function Registration() {
+export function Registration() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {

@@ -35,10 +35,15 @@ export default function ContactsPage() {
 
   return (
     <>
-      {!isLoggedIn && <Navigate to="/" />}
+      {!isLoggedIn && <Navigate to="/login" />}
 
       <Container>
-        <Box display="flex" justifyContent="space-between" p={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          p={2}
+          backgroundColor="#FFF"
+        >
           <Filter />
           <Button type="button" onClick={toggleModalForm}>
             Add New

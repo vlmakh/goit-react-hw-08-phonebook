@@ -10,8 +10,11 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 
-const Login = lazy(() => import('components/Login/Login'));
-const Registration = lazy(() => import('components/Registration/Registration'));
+
+// const Login = lazy(() => import('components/Login/Login'));
+// const Registration = lazy(() => import('components/Registration/Registration'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegPage = lazy(() => import('pages/RegPage/RegPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
@@ -39,16 +42,17 @@ export const App = () => {
       >
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route path="/" element={<HomePage />}>
-              <Route
-                index
-                element={<RestrictedRoute component={<Login />} />}
+            <Route index element={<HomePage />} />
+            <Route
+              path="/login"
+              element={<RestrictedRoute component={<LoginPage />} />}
+              // element={<LoginPage />}
               />
               <Route
                 path="/registration"
-                element={<RestrictedRoute component={<Registration />} />}
-              />
-            </Route>
+                element={<RestrictedRoute component={<RegPage />} />}
+              />  
+            
             <Route
               path="/contacts"
               element={<PrivateRoute component={<ContactsPage />} />}
