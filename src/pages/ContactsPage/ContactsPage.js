@@ -1,5 +1,5 @@
 import { Box } from 'components/Box/Box';
-import { Container, Contacts } from './ContactsPage.styled';
+import { ContactPageWrap, Contacts } from './ContactsPage.styled';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
@@ -34,22 +34,15 @@ export default function ContactsPage() {
   };
 
   return (
-    <>
+    <ContactPageWrap>
       {!isLoggedIn && <Navigate to="/login" />}
 
-      <Container>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          p={2}
-          backgroundColor="#FFF"
-        >
-          <Filter />
-          <Button type="button" onClick={toggleModalForm}>
-            Add New
-          </Button>
-        </Box>
-      </Container>
+      <Box display="flex" justifyContent="space-between" p={2}>
+        <Filter />
+        <Button type="button" onClick={toggleModalForm}>
+          Add New
+        </Button>
+      </Box>
 
       <Contacts>
         {filteredContacts.length > 0 || filter ? (
@@ -66,6 +59,6 @@ export default function ContactsPage() {
           </Modal>
         )}
       </Box>
-    </>
+    </ContactPageWrap>
   );
 }
