@@ -3,9 +3,7 @@ import { Form, Field, ErrorMessage } from 'formik';
 import InputMask from 'react-input-mask';
 
 export const FormStyled = styled(Form)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
   width: 360px;
   padding: 16px;
   border: 1px solid #212121;
@@ -28,18 +26,22 @@ export const FormField = styled.div`
   }
 `
 
-export const Input = styled(Field)`
+export const InputName = styled(Field)`
   display: flex;
   align-items: center;
   margin-left: 8px;
   padding: 4px;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: 200px;
 `;
 
-export const InputMaskStyled = styled(InputMask)`
+export const InputNumber = styled(InputMask)`
   display: flex;
   align-items: center;
   margin-left: 8px;
   padding: 4px;
+  width: 200px;
 `;
 
 export const FormBtn = styled.button`
