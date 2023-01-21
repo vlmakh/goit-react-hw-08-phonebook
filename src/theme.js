@@ -3,8 +3,8 @@ export const theme = {
     bcgMain: '#191c27',
     bcgLayout: '#12141d',
     textMain: '#212121',
-    accent: '#ffdf60',
-    accentHover: '#ffcc00',
+    accent: '#ffda44',
+    accentHover: '#ffc400',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fontSizes: {
