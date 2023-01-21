@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -7,4 +8,8 @@ export const PrivateRoute = ({ component: Component }) => {
   const shouldRedirect = !isLoggedIn && !isCheckingLogin;
 
   return shouldRedirect ? <Navigate to="/login" /> : Component;
+};
+
+PrivateRoute.propTypes = {
+  component: PropTypes.object,
 };
