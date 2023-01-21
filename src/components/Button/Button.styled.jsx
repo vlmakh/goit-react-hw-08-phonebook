@@ -9,12 +9,12 @@ export const Button = styled.button`
   height: 24px;
   border-radius: 4px;
   border: none;
-  background-color: #ffdf60;
+  background-color: ${p => p.theme.colors.accent};
   transition: background-color 250ms linear;
 
   :hover,
   :focus {
-    background-color: #ffcc00;
+    background-color: ${p => p.theme.colors.accentHover};
   }
 `;
 
@@ -25,13 +25,13 @@ export const ButtonLink = styled(NavLink)`
   font-weight: 700;
   border-radius: 4px;
   border: none;
-  background-color: #ffdf60;
+  background-color: ${p => p.theme.colors.accent};
   transition: background-color 250ms linear;
   text-decoration: none;
   color: #212121;
 
   :hover,
   :focus {
-    background-color: #ffcc00;
+    background-color: ${p => p.theme.colors.accentHover};
   }
 `;

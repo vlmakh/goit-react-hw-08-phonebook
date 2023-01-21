@@ -44,12 +44,12 @@ export const Button = styled.button`
   border-radius: 4px;
   border: none;
   margin: 0 auto;
-  background-color: #fcd535;
+  background-color: ${p => p.theme.colors.accent};
   transition: background-color 250ms linear;
 
   :hover,
   :focus {
-    background-color: #ffcc00;
+    background-color: ${p => p.theme.colors.accentHover};
   }
 
   :focus-visible {

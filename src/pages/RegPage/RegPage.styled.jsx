@@ -27,10 +27,10 @@ export const MenuLink = styled(NavLink)`
   transition: background-color 250ms linear;
 
   &.active {
-    background-color: #fcd535;
+    background-color: ${p => p.theme.colors.accent};
   }
 
   :hover {
-    background-color: #ffcc00;
+    background-color: ${p => p.theme.colors.accentHover};
   }
 `;

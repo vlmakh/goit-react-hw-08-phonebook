@@ -9,6 +9,8 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { ThemeProvider } from 'theme-ui';
+import { theme } from 'theme';
 
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const RegPage = lazy(() => import('pages/RegPage/RegPage'));
@@ -21,7 +23,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Suspense
         fallback={
           <Box pt="100px" display="flex" justifyContent="center">
@@ -68,6 +70,6 @@ export const App = () => {
           },
         }}
       />
-    </>
+    </ThemeProvider>
   );
 };

@@ -82,7 +82,7 @@ export const addContact = createAsyncThunk(
   async (newContact, thunkAPI) => {
     try {
       const response = await axios.post(`/contacts`, newContact);
-      toast.success(`${newContact.name} is added`);
+      toast.success(`${newContact.name} was added`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -96,7 +96,7 @@ export const deleteContact = createAsyncThunk(
     const { contactId, name } = contact;
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
-      toast.error(`${name} is deleted`);
+      toast.error(`${name} was deleted`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
