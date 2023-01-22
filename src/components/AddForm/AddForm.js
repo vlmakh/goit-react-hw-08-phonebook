@@ -68,10 +68,11 @@ export function AddForm({ toggleModalForm }) {
 
             <FormField>
               <HiPhone />
-              <Field type="tel" name="number">
+              <Field name="number">
                 {({ field }) => (
                   <InputNumber
                     {...field}
+                    type="tel"
                     mask="+99 999 999 9999"
                     placeholder="number"
                   />
