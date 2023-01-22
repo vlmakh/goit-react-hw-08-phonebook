@@ -5,7 +5,7 @@ export const Header = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 84px;
   background: #212121;
   color: #ffffff;
   z-index: 1000;

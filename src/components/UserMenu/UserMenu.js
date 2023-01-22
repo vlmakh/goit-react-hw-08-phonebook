@@ -3,6 +3,7 @@ import { Button } from 'components/Button/Button.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/operations';
 import { Box } from 'components/Box/Box';
+import { Filter } from 'components/Filter/Filter';
 
 export function UserMenu() {
   const dispatch = useDispatch();
@@ -11,13 +12,21 @@ export function UserMenu() {
 
   return (
     <UserMenuWrap>
-      <Box>
-        <Name>{userName}</Name>
-        <Email>{userEmail}</Email>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        pt={2}
+      >
+        <Box>
+          <Name>{userName}</Name>
+          <Email>{userEmail}</Email>
+        </Box>
+        <Button type="button" onClick={() => dispatch(logout())}>
+          Logout
+        </Button>
       </Box>
-      <Button type="button" onClick={() => dispatch(logout())}>
-        Logout
-      </Button>
+      <Filter />
     </UserMenuWrap>
   );
 }

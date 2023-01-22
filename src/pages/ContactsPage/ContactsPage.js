@@ -2,7 +2,6 @@ import { Box } from 'components/Box/Box';
 import { ContactPageWrap, Contacts } from './ContactsPage.styled';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
-import { Filter } from 'components/Filter/Filter';
 import { Button } from 'components/Button/Button.styled';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -37,13 +36,7 @@ export default function ContactsPage() {
     <ContactPageWrap>
       {!isLoggedIn && <Navigate to="/login" />}
 
-      <Box
-        pr={3}
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Filter />
+      <Box py={3} display="flex" justifyContent="center" alignItems="center">
         <Button type="button" onClick={toggleModalForm}>
           Add New
         </Button>
