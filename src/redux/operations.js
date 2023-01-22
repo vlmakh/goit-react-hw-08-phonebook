@@ -110,7 +110,11 @@ export const deleteContact = createAsyncThunk(
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async contact => {
-    const { id, ...contactData } = contact;
+    const contactCapitalized = {
+      ...contact,
+      name: capitalize(contact.name),
+    };
+    const { id, ...contactData } = contactCapitalized;
     try {
       const response = await axios.patch(`/contacts/${id}`, contactData);
       return response.data;
