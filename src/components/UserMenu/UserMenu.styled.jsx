@@ -2,9 +2,6 @@ import styled from '@emotion/styled';
 import { Container } from 'components/Container/Container';
 
 export const UserMenuWrap = styled(Container)`
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   padding: 0 8px;
   height: 100%;
 `;

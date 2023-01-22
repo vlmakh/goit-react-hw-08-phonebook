@@ -24,7 +24,7 @@ export const FormField = styled.div`
   &:not(:first-of-type) {
     margin-top: 16px;
   }
-`
+`;
 
 export const InputName = styled(Field)`
   display: flex;
