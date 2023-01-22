@@ -1,5 +1,4 @@
-import { Box } from 'components/Box/Box';
-import { ContactPageWrap, Contacts } from './ContactsPage.styled';
+import { ContactPageWrap, ControlBox, Contacts } from './ContactsPage.styled';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Button } from 'components/Button/Button.styled';
@@ -14,8 +13,9 @@ import Modal from 'components/Modal/Modal';
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoading = useSelector(state => state.contacts.isLoading);
   const [showModalForm, setShowModalForm] = useState(false);
 
   useEffect(() => {
@@ -36,27 +36,31 @@ export default function ContactsPage() {
     <ContactPageWrap>
       {!isLoggedIn && <Navigate to="/login" />}
 
-      <Box py={3} display="flex" justifyContent="center" alignItems="center">
-        <Button type="button" onClick={toggleModalForm}>
-          Add New
-        </Button>
-      </Box>
+      <ControlBox>
+        {isLoading ? (
+          <Notification msg={isLoading} />
+        ) : (
+          <Button type="button" onClick={toggleModalForm}>
+            Add New
+          </Button>
+        )}
+      </ControlBox>
 
       <Contacts>
-        {filteredContacts.length > 0 || filter ? (
+        {!isLoading && !filteredContacts.length && (
+          <Notification msg="No contacts found" />
+        )}
+
+        {filteredContacts.length > 0 && (
           <ContactList contacts={filteredContacts ?? []} />
-        ) : (
-          <Notification msg="No contacts added" />
         )}
       </Contacts>
 
-      <Box position="absolute" right="0" top="0">
-        {showModalForm && (
-          <Modal onClose={toggleModalForm}>
-            <AddForm toggleModalForm={toggleModalForm} />
-          </Modal>
-        )}
-      </Box>
+      {showModalForm && (
+        <Modal onClose={toggleModalForm}>
+          <AddForm toggleModalForm={toggleModalForm} />
+        </Modal>
+      )}
     </ContactPageWrap>
   );
 }

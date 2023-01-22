@@ -24,7 +24,7 @@ let schema = yup.object().shape({
 
 export function AddForm({ toggleModalForm }) {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
 
   const handleSubmit = (newContact, { resetForm }) => {
     if (

@@ -13,7 +13,7 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-const errorMsg = "Something's wrong. Please try again";
+const errorMsg = "Something's wrong. Please update page and try again";
 
 export const register = createAsyncThunk('auth/register', async credentials => {
   try {

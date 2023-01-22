@@ -32,7 +32,7 @@ export const authSlice = createSlice({
         state.user.email = action.payload.email;
         state.isLoggedIn = true;
       })
-      .addCase(checkCurrentUser.rejected, (state, action) => {
+      .addCase(checkCurrentUser.rejected, state => {
         state.isCheckingLogin = false;
       })
       .addCase(logout.fulfilled, state => {

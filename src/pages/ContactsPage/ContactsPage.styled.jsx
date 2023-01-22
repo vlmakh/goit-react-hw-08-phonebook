@@ -8,6 +8,13 @@ export const ContactPageWrap = styled(Container)`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
 `;
 
+export const ControlBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+`;
+
 export const Contacts = styled.div`
   max-width: 360px;
   margin: 0 auto;
