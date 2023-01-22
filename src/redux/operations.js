@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { capitalize } from 'utils/capitalize';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -78,9 +79,13 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async newContact => {
+    const contactCapitalized = {
+      ...newContact,
+      name: capitalize(newContact.name),
+    };
     try {
-      const response = await axios.post(`/contacts`, newContact);
-      toast.success(`${newContact.name} was added`);
+      const response = await axios.post(`/contacts`, contactCapitalized);
+      toast.success(`${capitalize(newContact.name)} was added`);
       return response.data;
     } catch (error) {
       toast.error(errorMsg);
