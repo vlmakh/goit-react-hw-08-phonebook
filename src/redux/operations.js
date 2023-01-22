@@ -117,6 +117,7 @@ export const updateContact = createAsyncThunk(
     const { id, ...contactData } = contactCapitalized;
     try {
       const response = await axios.patch(`/contacts/${id}`, contactData);
+      toast.success(`${contactData.name} was updated`);
       return response.data;
     } catch (error) {
       toast.error(errorMsg);
