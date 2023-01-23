@@ -63,7 +63,7 @@ export const App = () => {
 
       <Toaster
         toastOptions={{
-          duration: 2000,
+          duration: 2500,
           style: {
             fontWeight: '700',
             background: '#fff',

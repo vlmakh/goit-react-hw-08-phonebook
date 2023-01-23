@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('Probably such email was alredy registered');
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue();
     }
   }
 );
@@ -39,7 +39,7 @@ export const login = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('There is mistake in login or password, please try again');
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue();
     }
   }
 );
