@@ -2,8 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
-import { useDispatch } from 'react-redux';
-import { Box } from 'components/Box/Box';
+import { useDispatch, useSelector } from 'react-redux';
+import { LoaderBox } from './Loader/Loader.styled';
 import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -22,11 +22,16 @@ export const App = () => {
     dispatch(checkCurrentUser());
   }, [dispatch]);
 
+  const isCheckingLogin = useSelector(state => state.auth.isCheckingLogin);
+  useEffect(() => {
+    console.log(isCheckingLogin)
+  }, [isCheckingLogin])
+
   return (
     <ThemeProvider theme={theme}>
       <Suspense
         fallback={
-          <Box pt="100px" display="flex" justifyContent="center">
+          <LoaderBox>
             <Bars
               height="60"
               width="80"
@@ -36,7 +41,7 @@ export const App = () => {
               wrapperClass=""
               visible={true}
             />
-          </Box>
+          </LoaderBox>
         }
       >
         <Routes>

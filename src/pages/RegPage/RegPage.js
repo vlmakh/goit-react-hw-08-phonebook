@@ -1,40 +1,23 @@
-// import { Outlet } from 'react-router-dom';
 import { Box } from 'components/Box/Box';
 import { LoginBox, MenuLink } from './RegPage.styled';
-import { Suspense } from 'react';
-import { Bars } from 'react-loader-spinner';
 import { Registration } from 'components/Registration/Registration';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 export default function RegPage() {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
   return (
     <>
+      {isLoggedIn && <Navigate to="/contacts" />}
+
       <LoginBox>
         <Box display="flex" justifyContent="space-around">
           <MenuLink to="/login">Login</MenuLink>
           <MenuLink to="/registration">Registration</MenuLink>
         </Box>
-        <Suspense
-          fallback={
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              pt="80px"
-            >
-              <Bars
-                height="40"
-                width="60"
-                color="#ffcc00"
-                ariaLabel="bars-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-            </Box>
-          }
-        >
-          <Registration />
-        </Suspense>
+
+        <Registration />
       </LoginBox>
     </>
   );

@@ -6,7 +6,7 @@ import {
   Button,
 } from './Login.styled';
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'redux/operations';
 import * as yup from 'yup';
 
@@ -17,6 +17,7 @@ let schema = yup.object().shape({
 
 export function Login() {
   const dispatch = useDispatch();
+  const isCheckingLogin = useSelector(state => state.auth.isCheckingLogin);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values));
@@ -50,7 +51,9 @@ export function Login() {
           <StyledErrorMsg component="div" name="password" />
         </Label>
 
-        <Button type="submit">Login</Button>
+        <Button type="submit" disabled={isCheckingLogin}>
+          Login
+        </Button>
       </StyledForm>
     </Formik>
   );
