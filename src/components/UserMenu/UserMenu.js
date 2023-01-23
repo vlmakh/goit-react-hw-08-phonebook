@@ -9,6 +9,7 @@ export function UserMenu() {
   const dispatch = useDispatch();
   const userName = useSelector(state => state.auth.user.name);
   const userEmail = useSelector(state => state.auth.user.email);
+  const isCheckingLogin = useSelector(state => state.auth.isCheckingLogin);
 
   return (
     <UserMenuWrap>
@@ -22,7 +23,11 @@ export function UserMenu() {
           <Name>{userName}</Name>
           <Email>{userEmail}</Email>
         </Box>
-        <Button type="button" onClick={() => dispatch(logout())}>
+        <Button
+          type="button"
+          onClick={() => dispatch(logout())}
+          disabled={isCheckingLogin}
+        >
           Logout
         </Button>
       </Box>

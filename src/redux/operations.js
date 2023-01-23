@@ -19,6 +19,7 @@ export const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const response = await axios.post(`/users/signup`, credentials);
     token.set(response.data.token);
+    toast.success(`${response.data.user.name} was registered`);
     return response.data;
   } catch (error) {
     toast.error('Probably such email was alredy registered');
