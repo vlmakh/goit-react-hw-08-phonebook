@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { LoaderBox } from './LoaderBox/LoaderBox';
 import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
@@ -22,11 +22,6 @@ export const App = () => {
   useEffect(() => {
     dispatch(checkCurrentUser());
   }, [dispatch]);
-
-  const isChecking = useSelector(state => state.auth.isCheckingLogin);
-  useEffect(() => {
-    console.log('isChecking', isChecking);
-  }, [isChecking]);
 
   return (
     <ThemeProvider theme={theme}>
