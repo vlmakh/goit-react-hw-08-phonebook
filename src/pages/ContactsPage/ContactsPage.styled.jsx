@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import { Container } from 'components/Container/Container';
 
 export const ContactPageWrap = styled(Container)`
   max-width: 360px;

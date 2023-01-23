@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Footer, FooterLink } from './SharedLayout.styled';
-import { Container } from 'components/Container/Container';
+import { Header, Footer, FooterWrap, FooterLink } from './SharedLayout.styled';
 import { Suspense } from 'react';
 import { Box } from 'components/Box/Box';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { HomeMenu } from 'components/HomeMenu/HomeMenu';
 import { Bars } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
+import { Logo } from 'components/Logo/Logo';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -42,12 +42,18 @@ export const SharedLayout = () => {
       </Suspense>
 
       <Footer>
-        <Container>
-          2023{' '}
+        <FooterWrap>
+          <FooterLink
+            href="https://vlmakh.github.io/my-portfolio/"
+            target="blank"
+          >
+            <Logo />
+          </FooterLink>
+          <p>2023</p>
           <FooterLink href="mailto:vlmakh@gmail.com">
             vlmakh@gmail.com
           </FooterLink>
-        </Container>
+        </FooterWrap>
       </Footer>
     </>
   );

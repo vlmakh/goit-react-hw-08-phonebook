@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Container } from 'components/Container/Container';
 
 export const Header = styled.div`
   position: fixed;
@@ -11,10 +12,13 @@ export const Header = styled.div`
   z-index: 1000;
 `;
 
-export const Container = styled.div`
-  max-width: 360px;
-  margin: 0 auto;
-  font-weight: 700;
+export const FooterWrap = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 8px;
+  height: 100%;
 `;
 
 export const Footer = styled.div`
@@ -22,6 +26,7 @@ export const Footer = styled.div`
   left: 0;
   bottom: 0;
   display: flex;
+  
   align-items: center;
   justify-content: center;
   width: 100%;
