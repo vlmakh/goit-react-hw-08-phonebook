@@ -15,26 +15,34 @@ const token = {
 };
 const errorMsg = "Something's wrong. Please update page and try again";
 
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const response = await axios.post(`/users/signup`, credentials);
-    token.set(response.data.token);
-    toast.success(`${response.data.user.name} was registered`);
-    return response.data;
-  } catch (error) {
-    toast.error('Probably such email was alredy registered');
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post(`/users/signup`, credentials);
+      token.set(response.data.token);
+      toast.success(`${response.data.user.name} was registered`);
+      return response.data;
+    } catch (error) {
+      toast.error('Probably such email was alredy registered');
+      return thunkAPI.rejectWithValue(error);
+    }
   }
-});
+);
 
-export const login = createAsyncThunk('auth/login', async credentials => {
-  try {
-    const response = await axios.post(`/users/login`, credentials);
-    token.set(response.data.token);
-    return response.data;
-  } catch (error) {
-    toast.error('There is mistake in login or password, please try again');
+export const login = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post(`/users/login`, credentials);
+      token.set(response.data.token);
+      return response.data;
+    } catch (error) {
+      toast.error('There is mistake in login or password, please try again');
+      return thunkAPI.rejectWithValue(error);
+    }
   }
-});
+);
 
 export const checkCurrentUser = createAsyncThunk(
   'auth/current',

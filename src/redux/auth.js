@@ -36,6 +36,7 @@ export const authSlice = createSlice({
         state.isCheckingLogin = false;
       })
       .addCase(login.rejected, state => {
+        state.user = { name: null, email: null };
         state.isCheckingLogin = false;
       })
       .addCase(checkCurrentUser.pending, state => {
