@@ -3,7 +3,7 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoaderBox } from './Loader/Loader.styled';
+import { LoaderBox } from './LoaderBox/LoaderBox';
 import { Bars } from 'react-loader-spinner';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
