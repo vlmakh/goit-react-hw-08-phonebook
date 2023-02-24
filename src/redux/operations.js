@@ -3,7 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
 
 const token = {
   set(token) {
