@@ -19,8 +19,6 @@ const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 export const App = () => {
   const dispatch = useDispatch();
 
-  console.log(process.env)
-
   useEffect(() => {
     dispatch(checkCurrentUser());
   }, [dispatch]);

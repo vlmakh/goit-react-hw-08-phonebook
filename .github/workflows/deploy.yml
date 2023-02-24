@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
 
-env:
-  REACT_APP_MAIN_URL: https://connections-api.herokuapp.com
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,6 +17,8 @@ jobs:
           npm install
           npm run lint:js
           npm run build
+        env:
+          REACT_APP_MAIN_URL: ${{ secrets.REACT_APP_MAIN_URL }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
