@@ -5,11 +5,13 @@ on:
     branches: [main]
 
 jobs:
+  display:
+
+  env:
+    REACT_APP_MAIN_URL: https://connections-api.herokuapp.com
+
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    env:
-    REACT_APP_MAIN_URL: https://connections-api.herokuapp.com
 
     steps:
       - name: Checkout 🛎️
