@@ -6,16 +6,21 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { fetchContacts } from 'redux/operations';
-
 import { Notification } from 'components/Notification/Notification';
 import Modal from 'components/Modal/Modal';
+import {
+  selectFilter,
+  selectContacts,
+  selectIsLoogedIn,
+  selectIsLoading,
+} from 'redux/selectors';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts.items);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const isLoading = useSelector(state => state.contacts.isLoading);
+  const filter = useSelector(selectFilter);
+  const contacts = useSelector(selectContacts);
+  const isLoggedIn = useSelector(selectIsLoogedIn);
+  const isLoading = useSelector(selectIsLoading);
   const [showModalForm, setShowModalForm] = useState(false);
 
   useEffect(() => {

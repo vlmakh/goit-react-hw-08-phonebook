@@ -9,6 +9,7 @@ import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'redux/operations';
 import * as yup from 'yup';
+import { selectIsCheckingLogin } from 'redux/selectors';
 
 let schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -17,7 +18,7 @@ let schema = yup.object().shape({
 
 export function Login() {
   const dispatch = useDispatch();
-  const isCheckingLogin = useSelector(state => state.auth.isCheckingLogin);
+  const isCheckingLogin = useSelector(selectIsCheckingLogin);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values));

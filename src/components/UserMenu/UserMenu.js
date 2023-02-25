@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/operations';
 import { Box } from 'components/Box/Box';
 import { Filter } from 'components/Filter/Filter';
+import {
+  selectUserName,
+  selectUserEmail,
+  selectIsCheckingLogin,
+} from 'redux/selectors';
 
 export function UserMenu() {
   const dispatch = useDispatch();
-  const userName = useSelector(state => state.auth.user.name);
-  const userEmail = useSelector(state => state.auth.user.email);
-  const isCheckingLogin = useSelector(state => state.auth.isCheckingLogin);
+  const userName = useSelector(selectUserName);
+  const userEmail = useSelector(selectUserEmail);
+  const isCheckingLogin = useSelector(selectIsCheckingLogin);
 
   return (
     <UserMenuWrap>

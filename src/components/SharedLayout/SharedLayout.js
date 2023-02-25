@@ -7,9 +7,10 @@ import { HomeMenu } from 'components/HomeMenu/HomeMenu';
 import { Bars } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 import { Logo } from 'components/Logo/Logo';
+import { selectIsLoogedIn } from 'redux/selectors';
 
 export const SharedLayout = () => {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoogedIn);
 
   return (
     <>

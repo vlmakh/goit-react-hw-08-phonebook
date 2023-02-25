@@ -16,6 +16,7 @@ import {
 } from 'components/ContactForm/ContactForm.styled';
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
+import { selectContacts } from 'redux/selectors';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
@@ -24,7 +25,7 @@ let schema = yup.object().shape({
 
 export function AddForm({ toggleModalForm }) {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (newContact, { resetForm }) => {
     if (
