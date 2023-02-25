@@ -1,4 +1,6 @@
-import { ContactPageWrap, ControlBox, Contacts } from './ContactsPage.styled';
+import { PageWrap } from 'components/PageWrap/PageWrap';
+import { ControlBox } from 'components/ControlBox/ControlBox';
+import { ContactsBox } from 'components/ContactsBox/ContactsBox';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Button } from 'components/Button/Button.styled';
@@ -38,7 +40,7 @@ export default function ContactsPage() {
   };
 
   return (
-    <ContactPageWrap>
+    <PageWrap>
       {!isLoggedIn && <Navigate to="/login" />}
 
       <ControlBox>
@@ -51,7 +53,7 @@ export default function ContactsPage() {
         )}
       </ControlBox>
 
-      <Contacts>
+      <ContactsBox>
         {!isLoading && !filteredContacts.length && (
           <Notification msg="No contacts found" />
         )}
@@ -59,13 +61,13 @@ export default function ContactsPage() {
         {filteredContacts.length > 0 && (
           <ContactList contacts={filteredContacts ?? []} />
         )}
-      </Contacts>
+      </ContactsBox>
 
       {showModalForm && (
         <Modal onClose={toggleModalForm}>
           <AddForm toggleModalForm={toggleModalForm} />
         </Modal>
       )}
-    </ContactPageWrap>
+    </PageWrap>
   );
 }

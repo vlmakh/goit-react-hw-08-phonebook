@@ -1,10 +1,11 @@
 import { Box } from 'components/Box/Box';
-import { LoginBox, MenuLink } from './RegPage.styled';
-import { Registration } from 'components/Registration/Registration';
+import { LoginBox } from 'components/LoginBox/LoginBox';
+import { MenuLink } from 'components/MenuLink/MenuLink';
+import { Login } from 'components/Login/Login';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-export default function RegPage() {
+export default function LoginPage() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
@@ -17,7 +18,7 @@ export default function RegPage() {
           <MenuLink to="/registration">Registration</MenuLink>
         </Box>
 
-        <Registration />
+        <Login />
       </LoginBox>
     </>
   );

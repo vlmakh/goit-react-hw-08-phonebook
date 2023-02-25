@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage } from 'pages/HomePage/HomePage';
+import { HomePage } from 'pages/HomePage';
 import { lazy, Suspense, useEffect } from 'react';
 import { checkCurrentUser } from 'redux/operations';
 import { useDispatch } from 'react-redux';
@@ -12,9 +12,9 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThemeProvider } from 'theme-ui';
 import { theme } from 'theme';
 
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
-const RegPage = lazy(() => import('pages/RegPage/RegPage'));
-const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const RegPage = lazy(() => import('pages/RegPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();

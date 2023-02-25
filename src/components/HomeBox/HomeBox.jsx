@@ -8,5 +8,3 @@ export const HomeBox = styled('div')`
   text-align: center;
   width: 360px;
 `;
-
-

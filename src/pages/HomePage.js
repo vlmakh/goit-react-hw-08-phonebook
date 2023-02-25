@@ -1,4 +1,4 @@
-import { HomeBox } from './HomePage.styled';
+import { HomeBox } from 'components/HomeBox/HomeBox';
 import phonebook from 'images/phonebook.png';
 
 export const HomePage = () => {
