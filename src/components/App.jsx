@@ -10,7 +10,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThemeProvider } from 'theme-ui';
-import { theme } from 'theme';
+import { theme } from 'utils/theme';
 
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegPage = lazy(() => import('pages/RegPage'));

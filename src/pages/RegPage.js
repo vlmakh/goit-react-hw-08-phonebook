@@ -4,9 +4,10 @@ import { MenuLink } from 'components/MenuLink/MenuLink';
 import { Registration } from 'components/Registration/Registration';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { selectIsLoogedIn } from 'redux/selectors';
 
 export default function RegPage() {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoogedIn);
 
   return (
     <>

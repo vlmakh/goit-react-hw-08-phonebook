@@ -11,16 +11,14 @@ import { fetchContacts } from 'redux/operations';
 import { Notification } from 'components/Notification/Notification';
 import Modal from 'components/Modal/Modal';
 import {
-  selectFilter,
-  selectContacts,
+  selectFilteredContacts,
   selectIsLoogedIn,
   selectIsLoading,
 } from 'redux/selectors';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
-  const contacts = useSelector(selectContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
   const isLoggedIn = useSelector(selectIsLoogedIn);
   const isLoading = useSelector(selectIsLoading);
   const [showModalForm, setShowModalForm] = useState(false);
@@ -28,12 +26,6 @@ export default function ContactsPage() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const filteredContacts = contacts
-    ? contacts.filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    : '';
 
   const toggleModalForm = () => {
     setShowModalForm(!showModalForm);
