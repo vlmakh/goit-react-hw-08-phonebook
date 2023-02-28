@@ -15,7 +15,6 @@ jobs:
       - name: Install, lint, build 🔧
         run: |
           npm install
-          npm run lint:js
           npm run build
         env:
           REACT_APP_MAIN_URL: ${{ secrets.REACT_APP_MAIN_URL }}

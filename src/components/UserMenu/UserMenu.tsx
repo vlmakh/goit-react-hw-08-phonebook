@@ -9,9 +9,10 @@ import {
   selectUserEmail,
   selectIsCheckingLogin,
 } from 'redux/selectors';
+import { AppDispatch } from 'redux/store';
 
 export function UserMenu() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const userName = useSelector(selectUserName);
   const userEmail = useSelector(selectUserEmail);
   const isCheckingLogin = useSelector(selectIsCheckingLogin);

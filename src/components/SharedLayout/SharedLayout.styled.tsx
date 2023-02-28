@@ -45,6 +45,6 @@ export const FooterLink = styled.a`
 
   :hover,
   :focus {
-    color: ${p => p.theme.colors.accentHover};
+    color: ${(p: { theme: { colors: { accentHover: string; }; }; }) => p.theme.colors.accentHover};
   }
 `;
