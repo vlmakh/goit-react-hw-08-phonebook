@@ -58,3 +58,14 @@ export interface IAuthState {
   isLoggedIn: boolean,
   isCheckingLogin: boolean,
 };
+
+export interface IConfirm {
+  onFormSubmit: ()=> void,
+  toggleConfirm: () => void,
+  name: string,
+}
+
+export interface IDeleteContact {
+  contactId: string,
+  name: string,
+}

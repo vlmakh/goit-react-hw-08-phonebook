@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
 import { Box } from 'components/Box/Box';
-import { Formik } from 'formik';
+// import { Formik } from 'formik';
 import { FormStyled, FormBtn } from 'components/ContactForm/ContactForm.styled';
+import { IConfirm } from 'components/types';
 
-export function Confirm({ onFormSubmit, toggleConfirm, name }) {
+export function Confirm({ onFormSubmit, toggleConfirm, name }: IConfirm) {
   return (
-    <Formik>
+    <>
       <FormStyled>
         <p>
           Delete contact <b>{name}</b>?
@@ -24,12 +24,6 @@ export function Confirm({ onFormSubmit, toggleConfirm, name }) {
           </FormBtn>
         </Box>
       </FormStyled>
-    </Formik>
+    </>
   );
 }
-
-Confirm.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
-  toggleConfirm: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-};

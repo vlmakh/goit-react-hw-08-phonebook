@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
-import { IValues, IContact } from 'components/types';
+import { IValues, IContact, IDeleteContact } from 'components/types';
 // import { RootState } from './store';
 
 axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
@@ -107,8 +107,8 @@ export const addContact = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (contact: IContact) => {
-    const { id: contactId, name } = contact;
+  async (contact: IDeleteContact) => {
+    const { contactId, name } = contact;
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
       toast.success(`${name} was deleted`);

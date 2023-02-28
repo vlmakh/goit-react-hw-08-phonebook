@@ -15,11 +15,13 @@ import {
 } from './ContactListItem.styled';
 import { Confirm } from 'components/Confirm/Confirm';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
+import { IContact, IValues } from 'components/types';
+import { AppDispatch } from 'redux/store';
 
-export function ContactListItem({ id, name, number }) {
+export function ContactListItem({ id, name, number }: IContact) {
   const [showEditForm, setShowEditForm] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const toggleEditForm = () => {
     setShowEditForm(!showEditForm);
@@ -29,11 +31,11 @@ export function ContactListItem({ id, name, number }) {
     setShowConfirm(!showConfirm);
   };
 
-  const handleDelete = contactId => {
+  const handleDelete = (contactId: string) => {
     dispatch(deleteContact({ contactId, name }));
   };
 
-  const handleUpdate = updatedContact => {
+  const handleUpdate = (updatedContact: IValues) => {
     dispatch(updateContact({ id, ...updatedContact }));
     toggleEditForm();
   };

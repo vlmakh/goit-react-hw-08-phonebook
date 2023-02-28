@@ -9,6 +9,6 @@ export const Item = styled.li`
   transition: background-color 250ms linear;
 
   :hover {
-    background-color: ${p => p.theme.colors.accent};
+    background-color: ${(p: { theme: { colors: { accent: string; }; }; }) => p.theme.colors.accent};
   }
 `;

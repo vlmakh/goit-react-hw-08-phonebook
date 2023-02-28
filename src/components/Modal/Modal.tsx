@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Overlay, ModalWrap } from './Modal.styled';
+import { IModal } from 'components/types';
 
-const modalRoot = document.querySelector('#modal-root');
+const modalRoot = document.querySelector('#modal-root') as HTMLDivElement;
 
-export default function Modal({ onClose, children }) {
+export default function Modal({ onClose, children }: IModal) {
   useEffect(() => {
     window.addEventListener('keydown', handleEscape);
 
@@ -14,13 +14,13 @@ export default function Modal({ onClose, children }) {
     };
   });
 
-  const handleEscape = event => {
+  const handleEscape = (event: { code: string; }) => {
     if (event.code === 'Escape') {
       onClose();
     }
   };
 
-  const handleBackdrop = event => {
+  const handleBackdrop = (event: { currentTarget: any; target: any; }) => {
     if (event.currentTarget === event.target) {
       onClose();
     }
@@ -33,8 +33,3 @@ export default function Modal({ onClose, children }) {
     modalRoot
   );
 }
-
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node,
-};
