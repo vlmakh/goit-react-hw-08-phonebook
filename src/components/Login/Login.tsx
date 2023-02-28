@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'redux/operations';
 import * as yup from 'yup';
 import { selectIsCheckingLogin } from 'redux/selectors';
+import { ICredentials, IResetForm } from 'components/types';
+import { AppDispatch } from 'redux/store';
 
 let schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -17,10 +19,10 @@ let schema = yup.object().shape({
 });
 
 export function Login() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const isCheckingLogin = useSelector(selectIsCheckingLogin);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values: ICredentials, { resetForm }: IResetForm) => {
     dispatch(login(values));
     resetForm();
   };

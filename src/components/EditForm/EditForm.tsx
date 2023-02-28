@@ -14,14 +14,15 @@ import {
 } from 'components/ContactForm/ContactForm.styled';
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
+import { IValues, IEditForm } from 'components/types';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.string().required(),
 });
 
-export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
-  const updateContact = values => {
+export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }: IEditForm) {
+  const updateContact = (values: IValues) => {
     onFormSubmit(values);
   };
 
@@ -53,7 +54,7 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
             <FormField>
               <HiPhone />
               <Field name="number">
-                {({ field }) => (
+                {({ field }: any) => (
                   <InputNumber
                     {...field}
                     type="tel"

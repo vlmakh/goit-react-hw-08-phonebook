@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
-import { IValues, IContact, IDeleteContact } from 'components/types';
+import { IValues, IContact, IDeleteContact, ICredentials } from 'components/types';
 // import { RootState } from './store';
 
 axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
@@ -34,7 +34,7 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (credentials, thunkAPI) => {
+  async (credentials: ICredentials, thunkAPI) => {
     try {
       const response = await axios.post(`/users/login`, credentials);
       token.set(response.data.token);

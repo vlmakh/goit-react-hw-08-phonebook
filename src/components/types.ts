@@ -5,6 +5,11 @@ export interface IValues {
   number: string;
 }
 
+export interface ICredentials {
+  email: string;
+  password: string;
+}
+
 export interface IContact extends IValues {
   id: string;
 }

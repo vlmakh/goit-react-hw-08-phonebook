@@ -7,7 +7,7 @@ export function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
-  const handleFilter = event => {
+  const handleFilter = (event: { currentTarget: { value: string } }) => {
     dispatch(filterChange(event.currentTarget.value));
   };
 
