@@ -15,10 +15,12 @@ import {
   selectIsLoogedIn,
   selectIsLoading,
 } from 'redux/selectors';
+import { AppDispatch } from 'redux/store';
+import { IContact } from 'components/types';
 
 export default function ContactsPage() {
-  const dispatch = useDispatch();
-  const filteredContacts = useSelector(selectFilteredContacts);
+  const dispatch = useDispatch<AppDispatch>();
+  const filteredContacts: IContact[] | never[] = useSelector(selectFilteredContacts);
   const isLoggedIn = useSelector(selectIsLoogedIn);
   const isLoading = useSelector(selectIsLoading);
   const [showModalForm, setShowModalForm] = useState(false);

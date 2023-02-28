@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import { Item } from './ContactList.styled';
+import {IContactList} from 'components/types'
 
-export function ContactList({ contacts }) {
+export function ContactList({ contacts }: IContactList) {
   return (
     <ul>
       {contacts
@@ -15,13 +15,3 @@ export function ContactList({ contacts }) {
     </ul>
   );
 }
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
