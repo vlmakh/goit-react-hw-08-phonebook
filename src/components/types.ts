@@ -29,10 +29,6 @@ export interface INotification {
   msg: string;
 }
 
-export interface IDelete {
-  deleteContact: (x: string) => void;
-}
-
 export interface IToggleModal {
   toggleModalForm: () => void;
 }
@@ -51,7 +47,6 @@ export interface IEditForm {
 export interface IContactsState {
   items: IContact[];
   isLoading: string | null;
-  // error: string | undefined | null;
 }
 
 export interface IAuthState {
@@ -68,10 +63,5 @@ export interface IAuthState {
 export interface IConfirm {
   onFormSubmit: ()=> void,
   toggleConfirm: () => void,
-  name: string,
-}
-
-export interface IDeleteContact {
-  id: string,
   name: string,
 }

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
-import { IValues, IContact, IDeleteContact, ICredentials } from 'components/types';
+import { IValues, IContact, ICredentials } from 'components/types';
 
 axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
 
@@ -26,7 +26,7 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('Probably such email was alredy registered');
-      // return thunkAPI.rejectWithValue();
+      return;
     }
   }
 );
@@ -40,7 +40,7 @@ export const login = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('There is mistake in login or password, please try again');
-      // return thunkAPI.rejectWithValue();
+      return;
     }
   }
 );
@@ -52,7 +52,6 @@ export const checkCurrentUser = createAsyncThunk(
 
     if (state.auth.token === null) {
       return;
-      // return thunkAPI.rejectWithValue();
     }
 
     token.set(state.auth.token);
@@ -106,7 +105,7 @@ export const addContact = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (contact: IDeleteContact) => {
+  async (contact: Pick<IContact, 'id' | 'name'>) => {
     const { id, name } = contact;
     try {
       const response = await axios.delete(`/contacts/${id}`);

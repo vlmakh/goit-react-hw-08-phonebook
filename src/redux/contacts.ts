@@ -10,7 +10,6 @@ import {
 const initialState: IContactsState = {
   items: [],
   isLoading: null,
-  // error: null,
 };
 
 export const contactsSlice = createSlice({
