@@ -3,7 +3,6 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
 import { IValues, IContact, IDeleteContact, ICredentials } from 'components/types';
-// import { RootState } from './store';
 
 axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
 
@@ -108,9 +107,9 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contact: IDeleteContact) => {
-    const { contactId, name } = contact;
+    const { id, name } = contact;
     try {
-      const response = await axios.delete(`/contacts/${contactId}`);
+      const response = await axios.delete(`/contacts/${id}`);
       toast.success(`${name} was deleted`);
       return response.data;
     } catch (error) {

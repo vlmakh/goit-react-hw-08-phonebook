@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { register, login, checkCurrentUser, logout } from './operations';
 import { IAuthState } from 'components/types';
 
@@ -14,9 +14,6 @@ export const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(register.pending, state => {
-        state.isCheckingLogin = true;
-      })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
@@ -26,9 +23,6 @@ export const authSlice = createSlice({
       .addCase(register.rejected, state => {
         state.user = { name: null, email: null };
         state.isCheckingLogin = false;
-      })
-      .addCase(login.pending, state => {
-        state.isCheckingLogin = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -40,9 +34,6 @@ export const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.isCheckingLogin = false;
       })
-      .addCase(checkCurrentUser.pending, state => {
-        state.isCheckingLogin = true;
-      })
       .addCase(checkCurrentUser.fulfilled, (state, action) => {
         state.isCheckingLogin = false;
         state.user.name = action.payload.name;
@@ -52,9 +43,6 @@ export const authSlice = createSlice({
       .addCase(checkCurrentUser.rejected, state => {
         state.user = { name: null, email: null };
         state.isCheckingLogin = false;
-      })
-      .addCase(logout.pending, state => {
-        state.isCheckingLogin = true;
       })
       .addCase(logout.fulfilled, state => {
         state.user = { name: null, email: null };
@@ -67,7 +55,18 @@ export const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
         state.isCheckingLogin = false;
-      });
+      })
+      .addMatcher(
+        isAnyOf(
+          register.pending,
+          login.pending,
+          logout.pending,
+          checkCurrentUser.pending
+        ),
+        state => {
+          state.isCheckingLogin = true;
+        }
+      );
   },
   reducers: {},
 });

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { MdEdit, MdDeleteForever } from 'react-icons/md';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
@@ -31,8 +30,8 @@ export function ContactListItem({ id, name, number }: IContact) {
     setShowConfirm(!showConfirm);
   };
 
-  const handleDelete = (contactId: string) => {
-    dispatch(deleteContact({ contactId, name }));
+  const handleDelete = (id: string) => {
+    dispatch(deleteContact({ id, name }));
   };
 
   const handleUpdate = (updatedContact: IValues) => {
@@ -82,9 +81,3 @@ export function ContactListItem({ id, name, number }: IContact) {
     </>
   );
 }
-
-ContactListItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};

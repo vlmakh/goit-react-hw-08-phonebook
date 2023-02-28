@@ -43,7 +43,7 @@ export interface IModal {
 }
 
 export interface IEditForm {
-  onFormSubmit: (values: IValues) => Promise<any>;
+  onFormSubmit: (values: IValues) => void;
   nameToUpdate: string;
   numberToUpdate: string;
 }
@@ -72,6 +72,6 @@ export interface IConfirm {
 }
 
 export interface IDeleteContact {
-  contactId: string,
+  id: string,
   name: string,
 }

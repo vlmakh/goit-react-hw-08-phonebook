@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { HiPhone, HiUserAdd } from 'react-icons/hi';
 import { MdSave } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
@@ -75,9 +74,3 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }: IEditFo
     </Formik>
   );
 }
-
-EditForm.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
-  nameToUpdate: PropTypes.string.isRequired,
-  numberToUpdate: PropTypes.string.isRequired,
-};
