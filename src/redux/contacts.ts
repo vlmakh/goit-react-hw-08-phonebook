@@ -1,5 +1,5 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { IContactsState } from 'components/types';
+import { createSlice, isAnyOf, PayloadAction } from '@reduxjs/toolkit';
+import { IContact, IContactsState } from 'components/types';
 import {
   fetchContacts,
   addContact,
@@ -20,7 +20,7 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.pending, state => {
         state.isLoading = 'Loading contacts...';
       })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
+      .addCase(fetchContacts.fulfilled, (state, action: PayloadAction<IContact[]>) => {
         return {
           ...state,
           items: [...action.payload],
@@ -30,14 +30,14 @@ export const contactsSlice = createSlice({
       .addCase(addContact.pending, state => {
         state.isLoading = 'Adding contact...';
       })
-      .addCase(addContact.fulfilled, (state, action) => {
+      .addCase(addContact.fulfilled, (state, action: PayloadAction<IContact>) => {
         state.items.push(action.payload);
         state.isLoading = null;
       })
       .addCase(deleteContact.pending, state => {
         state.isLoading = 'Deleting contact...';
       })
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(deleteContact.fulfilled, (state, action: PayloadAction<IContact>) => {        
         return {
           items: [
             ...state.items.filter(contact => contact.id !== action.payload.id),
@@ -48,7 +48,7 @@ export const contactsSlice = createSlice({
       .addCase(updateContact.pending, state => {
         state.isLoading = 'Updating contact...';
       })
-      .addCase(updateContact.fulfilled, (state, action) => {
+      .addCase(updateContact.fulfilled, (state, action: PayloadAction<IContact>) => {
         const index = state.items.findIndex(
           contact => contact.id === action.payload.id
         );
