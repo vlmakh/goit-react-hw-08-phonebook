@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { IContactsState } from 'components/types';
 import {
   fetchContacts,
   addContact,
@@ -6,12 +7,15 @@ import {
   updateContact,
 } from './operations';
 
+const initialState: IContactsState = {
+  items: [],
+  isLoading: null,
+  // error: null,
+};
+
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: {
-    items: [],
-    isLoading: null,
-  },
+  initialState: initialState,
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, state => {
@@ -24,17 +28,11 @@ export const contactsSlice = createSlice({
           isLoading: null,
         };
       })
-      .addCase(fetchContacts.rejected, state => {
-        state.isLoading = null;
-      })
       .addCase(addContact.pending, state => {
         state.isLoading = 'Adding contact...';
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
-        state.isLoading = null;
-      })
-      .addCase(addContact.rejected, state => {
         state.isLoading = null;
       })
       .addCase(deleteContact.pending, state => {
@@ -48,9 +46,6 @@ export const contactsSlice = createSlice({
           isLoading: null,
         };
       })
-      .addCase(deleteContact.rejected, state => {
-        state.isLoading = null;
-      })
       .addCase(updateContact.pending, state => {
         state.isLoading = 'Updating contact...';
       })
@@ -61,8 +56,17 @@ export const contactsSlice = createSlice({
         state.items.splice(index, 1, action.payload);
         state.isLoading = null;
       })
-      .addCase(updateContact.rejected, state => {
-        state.isLoading = null;
-      });
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.rejected,
+          addContact.rejected,
+          updateContact.rejected,
+          deleteContact.rejected
+        ),
+        state => {
+          state.isLoading = null;
+        }
+      );
   },
+  reducers: {},
 });

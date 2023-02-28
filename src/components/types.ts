@@ -44,6 +44,6 @@ export interface IEditForm {
 
 export interface IContactsState {
   items: IContact[];
-  isLoading: boolean;
-  error: string | undefined | null;
+  isLoading: string | null;
+  // error: string | undefined | null;
 }
