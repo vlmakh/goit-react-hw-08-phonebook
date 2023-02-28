@@ -2,11 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { capitalize } from 'utils/capitalize';
+import { IValues, IContact } from 'components/types';
+// import { RootState } from './store';
 
 axios.defaults.baseURL = process.env.REACT_APP_MAIN_URL;
 
 const token = {
-  set(token) {
+  set(token: string) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
@@ -25,7 +27,7 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('Probably such email was alredy registered');
-      return thunkAPI.rejectWithValue();
+      // return thunkAPI.rejectWithValue();
     }
   }
 );
@@ -39,7 +41,7 @@ export const login = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('There is mistake in login or password, please try again');
-      return thunkAPI.rejectWithValue();
+      // return thunkAPI.rejectWithValue();
     }
   }
 );
@@ -47,10 +49,11 @@ export const login = createAsyncThunk(
 export const checkCurrentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
+    const state: any = thunkAPI.getState();
 
     if (state.auth.token === null) {
-      return thunkAPI.rejectWithValue();
+      return;
+      // return thunkAPI.rejectWithValue();
     }
 
     token.set(state.auth.token);
@@ -87,7 +90,7 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async newContact => {
+  async (newContact: IValues) => {
     const contactCapitalized = {
       ...newContact,
       name: capitalize(newContact.name),
@@ -104,8 +107,8 @@ export const addContact = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async contact => {
-    const { contactId, name } = contact;
+  async (contact: IContact) => {
+    const { id: contactId, name } = contact;
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
       toast.success(`${name} was deleted`);
@@ -118,7 +121,7 @@ export const deleteContact = createAsyncThunk(
 
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async contact => {
+  async (contact: IContact) => {
     const contactCapitalized = {
       ...contact,
       name: capitalize(contact.name),

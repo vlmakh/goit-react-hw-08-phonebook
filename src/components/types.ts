@@ -27,6 +27,10 @@ export interface IDelete {
   deleteContact: (x: string) => void;
 }
 
+export interface IToggleModal {
+  toggleModalForm: () => void;
+}
+
 export interface IModal {
   children: ReactNode;
   onClose: () => void;

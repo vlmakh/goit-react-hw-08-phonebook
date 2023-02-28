@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { HiPhone, HiUserAdd } from 'react-icons/hi';
 import { MdOutlineDataSaverOn } from 'react-icons/md';
 import { Box } from 'components/Box/Box';
@@ -17,20 +16,22 @@ import {
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { selectContacts } from 'redux/selectors';
+import { AppDispatch } from 'redux/store';
+import { IContact, IResetForm, IValues, IToggleModal } from 'components/types';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.string().required(),
 });
 
-export function AddForm({ toggleModalForm }) {
-  const dispatch = useDispatch();
+export function AddForm({ toggleModalForm }: IToggleModal) {
+  const dispatch = useDispatch<AppDispatch>();
   const contacts = useSelector(selectContacts);
 
-  const handleSubmit = (newContact, { resetForm }) => {
+  const handleSubmit = (newContact: IValues, { resetForm }: IResetForm) => {
     if (
       contacts.find(
-        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+        (contact: IContact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
       )
     ) {
       alert(` ${newContact.name} is already in contacts.`);
@@ -70,7 +71,7 @@ export function AddForm({ toggleModalForm }) {
             <FormField>
               <HiPhone />
               <Field name="number">
-                {({ field }) => (
+                {({ field }: any) => (
                   <InputNumber
                     {...field}
                     type="tel"
@@ -91,7 +92,3 @@ export function AddForm({ toggleModalForm }) {
     </Formik>
   );
 }
-
-AddForm.propTypes = {
-  toggleModalForm: PropTypes.func.isRequired,
-};
