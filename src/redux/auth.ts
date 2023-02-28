@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, login, checkCurrentUser, logout } from './operations';
+import { IAuthState } from 'components/types';
 
-const initialState = {
+const initialState: IAuthState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
@@ -68,4 +69,5 @@ export const authSlice = createSlice({
         state.isCheckingLogin = false;
       });
   },
+  reducers: {},
 });

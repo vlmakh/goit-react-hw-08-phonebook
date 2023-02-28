@@ -47,3 +47,14 @@ export interface IContactsState {
   isLoading: string | null;
   // error: string | undefined | null;
 }
+
+export interface IAuthState {
+  user:
+  {
+    name: string | null,
+    email: string | null,
+  },
+  token: string | null,
+  isLoggedIn: boolean,
+  isCheckingLogin: boolean,
+};
