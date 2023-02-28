@@ -6,6 +6,7 @@ export interface IValues {
 }
 
 export interface ICredentials {
+  name?: string,
   email: string;
   password: string;
 }

@@ -19,7 +19,7 @@ const errorMsg = "Something's wrong. Please update page and try again";
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async (credentials: ICredentials, thunkAPI) => {
     try {
       const response = await axios.post(`/users/signup`, credentials);
       token.set(response.data.token);
