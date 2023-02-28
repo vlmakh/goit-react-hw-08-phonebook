@@ -1,11 +1,11 @@
 import { Box } from 'components/Box/Box';
-// import { Formik } from 'formik';
+import { Formik } from 'formik';
 import { FormStyled, FormBtn } from 'components/ContactForm/ContactForm.styled';
 import { IConfirm } from 'components/types';
 
 export function Confirm({ onFormSubmit, toggleConfirm, name }: IConfirm) {
   return (
-    <>
+    <Formik onSubmit={onFormSubmit} initialValues={{}}>
       <FormStyled>
         <p>
           Delete contact <b>{name}</b>?
@@ -16,14 +16,13 @@ export function Confirm({ onFormSubmit, toggleConfirm, name }: IConfirm) {
           </FormBtn>
 
           <FormBtn
-            type="button"
+            type="submit"
             aria-label="Delete contact"
-            onClick={onFormSubmit}
           >
             DELETE
           </FormBtn>
         </Box>
       </FormStyled>
-    </>
+    </Formik>
   );
 }
