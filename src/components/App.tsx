@@ -11,13 +11,14 @@ import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThemeProvider } from 'theme-ui';
 import { theme } from 'utils/theme';
+import { AppDispatch } from 'redux/store';
 
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegPage = lazy(() => import('pages/RegPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 export const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(checkCurrentUser());
