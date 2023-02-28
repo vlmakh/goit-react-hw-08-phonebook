@@ -1,4 +1,6 @@
-export const theme = {
+import { Theme } from 'theme-ui';
+
+export const theme: Theme = {
   colors: {
     bcgMain: '#191c27',
     bcgLayout: '#12141d',

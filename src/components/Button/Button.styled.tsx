@@ -9,12 +9,12 @@ export const Button = styled.button`
   height: 24px;
   border-radius: 4px;
   border: none;
-  background-color: ${p => p.theme.colors.accent};
+  background-color: ${(p: { theme: { colors: { accent: string; }; }; }) => p.theme.colors.accent};
   transition: background-color 250ms linear;
 
   :hover,
   :focus {
-    background-color: ${p => p.theme.colors.accentHover};
+    background-color: ${(p: { theme: { colors: { accentHover: string; }; }; }) => p.theme.colors.accentHover};
   }
 `;
 
@@ -25,13 +25,13 @@ export const ButtonLink = styled(NavLink)`
   font-weight: 700;
   border-radius: 4px;
   border: none;
-  background-color: ${p => p.theme.colors.accent};
+  background-color: ${(p: { theme: { colors: { accent: string; }; }; }) => p.theme.colors.accent};
   transition: background-color 250ms linear;
   text-decoration: none;
   color: #212121;
 
   :hover,
   :focus {
-    background-color: ${p => p.theme.colors.accentHover};
+    background-color: ${(p: { theme: { colors: { accentHover: string; }; }; }) => p.theme.colors.accentHover};
   }
 `;
