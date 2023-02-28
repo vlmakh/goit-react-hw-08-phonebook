@@ -26,7 +26,7 @@ export const register = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('Probably such email was alredy registered');
-      return;
+      return thunkAPI.rejectWithValue('');
     }
   }
 );
@@ -40,7 +40,7 @@ export const login = createAsyncThunk(
       return response.data;
     } catch (error) {
       toast.error('There is mistake in login or password, please try again');
-      return;
+      return thunkAPI.rejectWithValue('');
     }
   }
 );
@@ -51,7 +51,7 @@ export const checkCurrentUser = createAsyncThunk(
     const state: any = thunkAPI.getState();
 
     if (state.auth.token === null) {
-      return;
+      return thunkAPI.rejectWithValue('');
     }
 
     token.set(state.auth.token);
@@ -70,7 +70,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     await axios.post(`/users/logout`);
     token.unset();
   } catch (error) {
-    toast.error(errorMsg);
+    toast.error(errorMsg);    
   }
 });
 

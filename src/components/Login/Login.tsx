@@ -22,8 +22,6 @@ export function Login() {
   const dispatch = useDispatch<AppDispatch>();
   const isCheckingLogin = useSelector(selectIsCheckingLogin);
 
-  console.log('isCheckingLogin', isCheckingLogin)
-
   const handleSubmit = (values: ICredentials, { resetForm }: IResetForm) => {
     dispatch(login(values));
     resetForm();
@@ -56,7 +54,7 @@ export function Login() {
           <StyledErrorMsg component="div" name="password" />
         </Label>
 
-        <Button type="submit">
+        <Button type="submit" disabled={isCheckingLogin}>
           Login
         </Button>
       </StyledForm>
